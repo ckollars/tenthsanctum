@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     includes: {
       files: {
         src: ['*.html','*.php'],
-        dest: '_dev/',
+        dest: '_site/',
         flatten: true,
         debug: true
       }
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
     compass: {
       options: {
         // bundleExec: true,
-        cssDir: '_dev/css',
+        cssDir: '_site/css',
         sassDir: 'scss',
         imagesDir: 'images',
         javascriptsDir: 'js',
@@ -91,10 +91,9 @@ module.exports = function(grunt) {
     copy: {
       dev: {
         files: [
-          {expand: true, cwd: '', src: ['scss/partials/utility/png/**'], dest: '_dev/images/'},
-          {expand: true, cwd: '', src: ['images/**/*'], dest: '_dev/'},
-          {expand: true, cwd: '', src: ['js/no-concat/modernizr.js'], dest: '_dev/'},
-          {expand: true, cwd: '', src: ['partials/chamber.php'], dest: '_dev/'},
+          {expand: true, cwd: '', src: ['scss/partials/utility/png/**'], dest: '_site/images/'},
+          {expand: true, cwd: '', src: ['images/**/*'], dest: '_site/'},
+          {expand: true, cwd: '', src: ['js/no-concat/modernizr.js'], dest: '_site/'},
         ]
       }
     },
@@ -104,13 +103,13 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['js/vendor/*.js','js/*.js'],
-        dest: '_dev/js/compiled.js'
+        dest: '_site/js/compiled.js'
       }
     },
     uglify: {
       build: {
         files: {
-          '_dev/js/compiled.min.js' : '_dev/js/compiled.js'
+          '_site/js/compiled.min.js' : '_site/js/compiled.js'
         }
       }
     }
