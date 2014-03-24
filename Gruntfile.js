@@ -86,7 +86,7 @@ module.exports = function(grunt) {
       },
       server: {
         files: [
-          { expand: true, cwd: '<%= kollab.app %>/img', src: '**', dest: '<%= kollab.dev %>/img' }
+          { expand: true, cwd: '<%= kollab.app %>/images', src: '**', dest: '<%= kollab.dev %>/images' }
         ]
       },
       dist: {
