@@ -31,6 +31,25 @@ module.exports = function(grunt) {
         '_dist'
       ]
     },
+    watch: {
+      compass: {
+        files: ['<%= kollab.app %>/_scss/**/*.scss'],
+        tasks: ['compass:server']
+      },
+      js: {
+        files: ['<%= kollab.app %>/js/*.js','<%= kollab.app %>/js/vendor/*.js'],
+        tasks: ['concat:server', 'uglify:server']
+      },
+      copy: {
+        files: [
+          // '<%= kollab.app %>css/*}',
+          '<%= kollab.app %>images/*}',
+          // '<%= kollab.app %>js/*}'
+        ],
+        tasks: ['copy:server']
+      }
+    },
+
     grunticon: {
       icons: {
         options: {
@@ -142,8 +161,8 @@ module.exports = function(grunt) {
   // Development build on all assets
   grunt.registerTask(
     'serve',
-    'Serves the Jekyll Site for development',
-    ['clean:server', 'jekyll:server', 'compass:server', 'concat:server', 'copy:server', 'uglify:server', 'watch' ]
+    'Serves a development site',
+    ['clean:server',, 'compass:server', 'concat:server', 'copy:server', 'uglify:server', 'watch' ]
   );
 
   // Distribution build on all assets. These then will need to be
