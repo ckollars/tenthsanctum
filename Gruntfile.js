@@ -1,45 +1,55 @@
-/*global module:false*/
+// Directory reference:
+//   css: css
+//   compass: _scss
+//   javascript: js
+//   images: images
+//   fonts: fonts
+
 module.exports = function(grunt) {
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
+  // Show elapsed time after tasks run.
+  require('time-grunt')(grunt);
+
+  // Load all Grunt tasks.
+  require('load-grunt-tasks')(grunt);
 
   // Project configuration.
   grunt.initConfig({
-    // Metadata.
-    pkg: grunt.file.readJSON('package.json'),
-    siteConfig: grunt.file.readJSON('site-config.json'),
-    banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-      '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>;' +
-      ' <%= pkg.license %> License */\n',
+    kollab: {
+      app: 'app',
+      dev: '_dev',
+      dist: '_dist'
+    },
+    clean: {
+      grunticon: {
+        src: ['<%= kollab.app %>/svgs/grunticon', '<% kollab.app %>/svgs/icons']
+      },
+      server: [
+        '_dev'
+      ],
+      dist: [
+        '_dist'
+      ]
+    },
     grunticon: {
       icons: {
         options: {
-          src: "svg/",
-          dest: "scss/partials/utility/",
-          datasvgcss: "_icons.data.svg.scss",
-          datapngcss: "_icons.data.png.scss",
-          urlpngcss: "_icons.fallback.scss"
+          src: '<%= kollab.app %>/svgs/',
+          dest: '<%= kollab.app %>/svgs/grunticon',
+          pngfolder: '<%= kollab.app %>/icons/',
+          datasvgcss: '_icons.data.svg.scss',
+          datapngcss: '_icons.data.png.scss',
+          urlpngcss: '_icons.fallback.scss'
         }
-      }
-    },
-     // Includes allow us to have partials in HTML
-    includes: {
-      files: {
-        src: ['*.html','*.php'],
-        dest: '_site/',
-        flatten: true,
-        debug: true
       }
     },
     compass: {
       options: {
-        // bundleExec: true,
-        cssDir: '_site/css',
-        sassDir: 'scss',
-        imagesDir: 'images',
-        javascriptsDir: 'js',
-        fontsDir: 'fonts',
+        sassDir: '<%= kollab.app %>/_scss',
+        imagesDir: '<%= kollab.app %>/images',
+        generatedImagesDir: '<%= kollab.app %>/images',
+        javascriptsDir: '<%= kollab.app %>/js',
+        fontsDir: '<%= kollab.app %>/fonts',
         assetCacheBuster: 'none',
         require: [
           'sass-globbing',
@@ -47,8 +57,9 @@ module.exports = function(grunt) {
           'rgbapng'
         ]
       },
-      dev: {
+      server: {
         options: {
+          cssDir: '<%= kollab.dev %>/css',
           environment: 'development',
           outputStyle: 'expanded',
           relativeAssets: true,
@@ -57,43 +68,31 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
+          cssDir: '<%= kollab.dist %>/css',
           environment: 'production',
-          outputStyle: 'compact',
+          outputStyle: 'compressed',
           force: true
         }
       }
     },
-    watch: {
-      html: {
-        files: ['*.html', '*.php'],
-        tasks: ['includes']
-      },
-      compass: {
-        files: ['scss/{,**/,**/**}*.scss'],
-        tasks: ['compass:dev']
-      },
-      js: {
-        files: ['js/*.js','js/vendor/*.js'],
-        tasks: ['concat','uglify']
-      },
-      livereload: {
-        options: {
-          livereload: true
-        },
-        files: [
-          'css/style.css',
-          'js/*.js',
-          '*.html',
-          'images/{,**/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
-      }
-    },
+
+
     copy: {
-      dev: {
+      grunticon: {
         files: [
-          {expand: true, cwd: '', src: ['scss/partials/utility/png/**'], dest: '_site/images/'},
-          {expand: true, cwd: '', src: ['images/**/*'], dest: '_site/'},
-          {expand: true, cwd: '', src: ['js/no-concat/modernizr.js'], dest: '_site/'},
+          {expand: true, flatten: true, src: ['svgs/images/**'], dest: '../images/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['svgs/grunticon/*.scss'], dest: 'scss/partials/utility/'},
+        ]
+      },
+      server: {
+        files: [
+          { expand: true, cwd: '<%= kollab.app %>/img', src: '**', dest: '<%= kollab.dev %>/img' }
+        ]
+      },
+      dist: {
+        files: [
+          {expand: true, src: ['../images/**'], dest: '_dist/images'},
+          {expand: true, src: ['js/no-concat/modernizr.js'], dest: '_dist/'},
         ]
       }
     },
@@ -101,21 +100,57 @@ module.exports = function(grunt) {
       options: {
         separator: ';'
       },
+      server: {
+        src: ['<%= kollab.app %>/js/vendor/*.js','<%= kollab.app %>/js/*.js'],
+        dest: '<%= kollab.dev %>/js/compiled.js'
+      },
       dist: {
         src: ['js/vendor/*.js','js/*.js'],
-        dest: '_site/js/compiled.js'
+        dest: '_dist/js/compiled.js'
       }
     },
     uglify: {
-      build: {
+      server: {
         files: {
-          '_site/js/compiled.min.js' : '_site/js/compiled.js'
+          '<%= kollab.dev %>/js/compiled.min.js': '<%= kollab.dev %>/js/compiled.js'
+        }
+      },
+      dist: {
+        files: {
+          '_dist/js/compiled.min.js': '_dist/js/compiled.js'
         }
       }
+    },
+    concurrent: {
+      server: [
+        'compass:server',
+        'jekyll:server'
+      ],
+      dist: [
+        'compass:dist',
+        'copy:dist'
+      ]
     }
   });
 
-  // Default task.
-  grunt.registerTask('images', ['grunticon']);
-  grunt.registerTask('assets', ['copy:dev','includes','compass:dev','concat','uglify']);
+  // Create svg stylesheets and fallback from svgs
+  grunt.registerTask(
+   'images',
+   ['grunticon', 'copy:grunticon', 'clean:grunticon']
+  );
+
+  // Development build on all assets
+  grunt.registerTask(
+    'serve',
+    'Serves the Jekyll Site for development',
+    ['clean:server', 'jekyll:server', 'compass:server', 'concat:server', 'copy:server', 'uglify:server', 'watch' ]
+  );
+
+  // Distribution build on all assets. These then will need to be
+  // manually moved to correct directories from "_dist" directory
+  grunt.registerTask(
+    'dist',
+    'Compiles all of the assets and copies the files to the distribution directory.',
+    ['clean:dist', 'jekyll:dist', 'compass:dist', 'concat:dist', 'uglify:dist', 'copy:dist']
+  );
 };
