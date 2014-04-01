@@ -5,12 +5,79 @@
     @extend %padding-0;
     @include clearfix;
     list-style: none;
+    text-algin: center;
     li{
-      @extend %margin-0;
       @extend %pull-left;
+      margin: 26px 0 0 0;
+      width: 20%;
     }
   }
+  a{
+    @extend %color-gray;
+    @include opacity(.9);
+    @include font-size(30px);
+    text-shadow: 0 1px 0 rgba($white, 0.3);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 800;
+  }
 }
-#hero{
-  background: url(../images/bg-laces.jpg) repeat-x 0 0;
+
+.artist-nav{
+  @extend %background-gold;
+  @include clearfix;
+  border-top: 1px solid rgba($gray, 0.6);
+  border-bottom: 1px solid rgba($gray, 0.6);
+  .container{
+    @include clearfix;
+  }
+  h2{
+    @extend %pull-left;
+    @include font-size(28px);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 20px 40px 20px 0;
+    text-align: right;
+    width: 40%;
+    color: rgba($white, .82);
+    letter-spacing: 1px;
+  }
+  ul{
+    @extend %margin-0;
+    @extend %padding-0;
+    @extend %pull-right;
+    @include clearfix;
+    border-left: 1px solid rgba($gray, 0.6);
+    border-right: 1px solid rgba($white, 0.4);
+    list-style: none;
+    width: 60%;
+    li{
+      @extend %pull-left;
+      display: block;
+      border-right: 1px solid rgba($gray, 0.6);
+      border-left: 1px solid rgba($white, 0.4);
+      width: 25%;
+      text-align: center;
+    }
+  }
+  a{
+    @extend %display-block;
+    @include font-size(28px);
+    @include transition(background 0.2s, color 0.2s);
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba($white, .82);
+    letter-spacing: 1px;
+    text-decoration: none;
+    width: 100%;
+    padding: 24px 0;
+    &:hover,
+    .active{
+      background-color: rgba($gray, 0.1);
+      color: rgba($white, .85);
+    }
+  }
 }

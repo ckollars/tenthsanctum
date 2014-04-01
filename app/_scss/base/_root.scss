@@ -15,3 +15,8 @@ $border-box: true !default;
 .cf:after {
   clear: both;
 }
+
+img{
+  @extend %display-block;
+  max-width: 100%;
+}
