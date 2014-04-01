@@ -1,0 +1,116 @@
+// Cross browser opacity
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// Verticle align only works down to IE9
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// REM font sizing. Doesn't have to reset HTML to 62.5% font size
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+// The .element-focusable class extends the .element-invisible class to allow
+// the element to be focusable when navigated to via the keyboard.
+@mixin element-focusable {
+  &:active,
+  &:focus {
+    position: static !important;
+    clip: auto;
+    overflow: visible;
+    height: auto;
+  }
+}
+
+// Reverts 'element-invisible'.
+@mixin element-visible {
+  position: inherit !important;
+  clip: inherit;
+  overflow: inherit;
+  height: inherit;
+}
+
+// Hide elements visually, but keep them available for screen-readers.
+//
+// Used for information required for screen-reader users to understand and use
+// the site where visual display is undesirable. Information provided in this
+// manner should be kept concise, to avoid unnecessary burden on the user.
+// "!important" is used to prevent unintentional overrides.
+@mixin element-invisible {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+}
+
+// Hide elements from all users.//
+// Used for elements which should not be immediately displayed to any user. An
+// example would be a collapsible fieldset that will be expanded with a click
+// from a user. The effect of this class can be toggled with the jQuery show()
+// and hide() functions.
+@mixin element-hidden {
+  display: none;
+}
+
+@mixin text-invisible {
+  text-indent: -999em;
+}
+
+// Hide elements visually, but keep them available for screen-readers.
+//
+// Used for information required for screen-reader users to understand and use
+// the site where visual display is undesirable. Information provided in this
+// manner should be kept concise, to avoid unnecessary burden on the user.
+// "!important" is used to prevent unintentional overrides.
+@mixin element-invisible {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// Still in test phase but looks like a good resource
+//
+// Add variables and different size for breakpoints. Else if you don't have a specific then
+// @include breakpoint(“max-width: 480px”)
+@mixin breakpoint($break) {
+  @if $break == large {
+    @media (max-width: 1420px) { @content; }
+  }
+  @else if $break == medium {
+    @media (max-width: 1200px) { @content; }
+  }
+  @else if $break == small {
+    @media (max-width: 760px) { @content; }
+  } @else {
+    @media ($break) { @content; }
+  }
+}

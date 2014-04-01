@@ -1,0 +1,73 @@
+// Enable hardware acceleration with css animations.
+%accelerate {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+%element-invisible {
+  @include element-invisible;
+}
+
+%text-invisible {
+  @include text-invisible;
+}
+
+%element-hidden {
+  @include element-hidden;
+}
+
+%element-invisible {
+  @include element-invisible;
+}
+
+%element-visible {
+  @include element-visible;
+}
+
+%element-focusable {
+  @include element-focusable;
+}
+
+
+// #Colors
+%color-gold{
+  color: $gold;
+}
+%color-gray{
+  color: $gray;
+}
+
+%background-gray{
+  background-color: $gray;
+}
+%background-yellow{
+  background-color: $yellow;
+}
+%background-light-yellow{
+  background-color: $light-yellow;
+}
+%background-gold{
+  background-gold: $gold;
+}
+
+// Layouts
+%pull-left{
+  float: left;
+}
+%pull-right{
+  float: right;
+}
+%display-block{
+  display: block;
+}
+%display-inline-block{
+  display: inline-block;
+}
+%margin-0{
+  margin: 0;
+}
+%padding-0{
+  padding: 0;
+}

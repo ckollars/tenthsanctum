@@ -1,0 +1,16 @@
+.main-nav{
+  background: url(../images/bg-header.png) repeat-x 0 0;
+  height: 70px;
+  ul{
+    @extend %padding-0;
+    @include clearfix;
+    list-style: none;
+    li{
+      @extend %margin-0;
+      @extend %pull-left;
+    }
+  }
+}
+#hero{
+  background: url(../images/bg-laces.jpg) repeat-x 0 0;
+}

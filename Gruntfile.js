@@ -44,6 +44,7 @@ module.exports = function(grunt) {
         files: [
           // '<%= kollab.app %>css/*}',
           '<%= kollab.app %>images/*}',
+          '<%= kollab.app %>/*.html}',
           // '<%= kollab.app %>js/*}'
         ],
         tasks: ['copy:server']
@@ -105,7 +106,8 @@ module.exports = function(grunt) {
       },
       server: {
         files: [
-          { expand: true, cwd: '<%= kollab.app %>/images', src: '**', dest: '<%= kollab.dev %>/images' }
+          { expand: true, cwd: '<%= kollab.app %>/images', src: '**', dest: '<%= kollab.dev %>/images' },
+          { expand: true, flatten: true, cwd: '<%= kollab.app %>/', src: '*.html', dest: '<%= kollab.dev %>', filter: 'isFile' }
         ]
       },
       dist: {
@@ -162,7 +164,7 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'serve',
     'Serves a development site',
-    ['clean:server',, 'compass:server', 'concat:server', 'copy:server', 'uglify:server', 'watch' ]
+    ['clean:server','compass:server', 'concat:server', 'copy:server', 'uglify:server', 'watch' ]
   );
 
   // Distribution build on all assets. These then will need to be
