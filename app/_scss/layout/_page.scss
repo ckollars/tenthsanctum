@@ -63,8 +63,53 @@ header{
   display: none;
 }
 .artist{
-  background: url(../images/bg-paper.jpg) center center;
+  @include clearfix;
+  background: url(../images/bg-paper.jpg) center top;
   > .container{
-    padding: 46px 0;
+    @include clearfix;
+    padding: 80px 30px;
+  }
+  figure{
+    @extend %pull-left;
+    background: url(../images/bg-avatar-ring.png) no-repeat center center;
+    float: left;
+    width: 42%;
+    height: 440px;
+
+    img{
+      border-radius: 50%;
+      margin: 90px 0 0 105px;
+    }
+  }
+  .content{
+    @extend %pull-left;
+    width: 58%;
+    padding-left: 60px;
+    ul{
+      @extend %margin-0;
+      @extend %padding-0;
+      @extend %pull-left;
+      list-style: none;
+      li{
+        @extend %display-inline-block;
+      }
+    }
+  }
+  h1{
+    @extend %color-gold;
+    @include font-size(60px);
+    font-weight: 800;
+    text-shadow: 0 1px 1px $gray;
+    text-transform: uppercase;
+    margin: 20px 0 0 0;
+  }
+  p{
+    @include font-size(18px);
+    line-height: 32px;
+  }
+
+  .info{
+    @extend %pull-left;
+    @include font-size(16px);
   }
 }
