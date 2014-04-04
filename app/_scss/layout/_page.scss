@@ -67,7 +67,7 @@ header{
   background: url(../images/bg-paper.jpg) center top;
   > .container{
     @include clearfix;
-    padding: 80px 30px;
+    padding: 40px 30px;
   }
   figure{
     @extend %pull-left;
@@ -83,17 +83,9 @@ header{
   }
   .content{
     @extend %pull-left;
+    position: relative;
     width: 58%;
     padding-left: 60px;
-    ul{
-      @extend %margin-0;
-      @extend %padding-0;
-      @extend %pull-left;
-      list-style: none;
-      li{
-        @extend %display-inline-block;
-      }
-    }
   }
   h1{
     @extend %color-gold;
@@ -107,9 +99,73 @@ header{
     @include font-size(18px);
     line-height: 32px;
   }
-
+  .contact{
+    @include clearfix;
+    margin-top: 40px;
+    ul{
+      @extend %pull-left;
+      margin: 0 24px 0 0;
+      padding: 14px 24px 14px 0;
+      list-style: none;
+      border-right: 1px solid $gold;
+      li{
+        @extend %display-inline-block;
+        padding: 0 4px;
+      }
+    }
+  }
+  .social{
+    a{
+      @extend %display-block;
+      @include opacity(.8);
+      overflow: hidden;
+      width: 32px;
+      height: 0;
+      padding-top: 32px;
+      &.facebook{
+        background: url(../images/svg/facebook.svg) no-repeat;
+      }
+      &.instagram{
+        background: url(../images/svg/instagram.svg) no-repeat;
+      }
+      &.twitter{
+        background: url(../images/svg/twitter.svg) no-repeat center center;
+      }
+    }
+  }
   .info{
+    @extend %margin-0;
     @extend %pull-left;
     @include font-size(16px);
+  }
+}
+
+#aftercare{
+  background: url(../images/bg-paper.jpg) center top;
+  border-bottom: 20px solid $gold;
+  h1{
+    @extend %color-gold;
+    @extend %margin-0;
+    @include font-size(60px);
+    font-weight: 800;
+    text-shadow: 0 1px 1px $gray;
+    text-transform: uppercase;
+  }
+  .container{
+    padding: 40px 0;
+  }
+  ol{
+    @extend %margin-0;
+    @include font-size(18px);
+    width: 60%;
+    li{
+      margin-bottom: 20px;
+    }
+  }
+}
+footer{
+  padding: 60px 0;
+  iframe{
+    border: 4px solid $gold;
   }
 }
