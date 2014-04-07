@@ -9,7 +9,7 @@
   var sanc = {
 
     construct: function(){
-
+      var _nav = $('#main-nav');
     },
 
     init: function(){
@@ -98,6 +98,33 @@
   // loadButton.on('click', function() {
   //   daveFeed.next();
   // });
+
+  var smoothScroll = {
+
+    init: function(){
+      sanc._nav.on("click", 'li a', function(event){
+        event.preventDefault();
+        smoothScroll.scroll( $(this).attr("href") );
+      });
+
+      $('.btn-scroll-arrow').on("click", this, function(event){
+        event.preventDefault();
+        smoothScroll.scroll( '#second' );
+      });
+
+      $('.btn-cartridge, .btn-cart-mobile a').on("click", this, function(event){
+        event.preventDefault();
+        smoothScroll.scroll( $(this).attr("href") );
+      });
+    },
+
+    scroll: function(target){
+      $('html, body').animate({
+        scrollTop: $(target).offset().top
+      }, 'slow');
+    }
+
+  };
 
   $(document).ready(function() {
     sanc.init();

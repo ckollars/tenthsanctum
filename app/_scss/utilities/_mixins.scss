@@ -103,13 +103,16 @@
 // @include breakpoint(“max-width: 480px”)
 @mixin breakpoint($break) {
   @if $break == large {
-    @media (max-width: 1420px) { @content; }
-  }
-  @else if $break == medium {
     @media (max-width: 1200px) { @content; }
   }
+  @else if $break == medium {
+    @media (max-width: 1000px) { @content; }
+  }
   @else if $break == small {
-    @media (max-width: 760px) { @content; }
+    @media (max-width: 800px) { @content; }
+  }
+  @else if $break == xsmall {
+    @media (max-width: 640px) { @content; }
   } @else {
     @media ($break) { @content; }
   }

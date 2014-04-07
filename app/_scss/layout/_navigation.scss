@@ -1,14 +1,24 @@
 .main-nav{
   background: url(../images/bg-header.png) repeat-x 0 0;
   height: 70px;
+
+  @include breakpoint(large){
+    height: 58px;
+  }
   ul{
-    @extend %padding-0;
     @include clearfix;
+    padding-top: 26px;
+    padding-left: 0;
     list-style: none;
     text-algin: center;
+    @include breakpoint(large){
+      padding-left: 30px;
+      padding-right: 30px;
+    }
     li{
       @extend %pull-left;
-      margin: 26px 0 0 0;
+      text-align: center;
+      margin: 0;
       width: 20%;
     }
   }
@@ -21,6 +31,13 @@
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 800;
+
+    @include breakpoint(large){
+      @include font-size(24px);
+    }
+    @include breakpoint(medium){
+      @include font-size(19px);
+    }
   }
 }
 
