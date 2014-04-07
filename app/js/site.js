@@ -15,15 +15,35 @@
     init: function(){
       var artistNav = $('#resident-artists').bxSlider({
         infiniteLoop: false,
-        pagerCustom: '.artist-nav ul',
         pager: false,
         controls: false
+      });
+
+      var tenSancGallery = $('#ten-sanc-gallery').bxSlider({
+        infiniteLoop: false,
+        minSlides: 5,
+        maxSlides: 5,
+        slideWidth: 172,
+        slideMargin: 50,
+        pager: false,
+        // controls: false,
+        nextSelector: '.btn-next',
+        prevSelector: '.btn-prev',
+
+        onSliderLoad: function(){
+          $('#ten-sanc-gallery li:nth-child(5)').css("margin", "0");
+          $('#ten-sanc-gallery').css("opacity", "1");
+        }
       });
 
       $('.artist-nav a').on('click', function(e){
         e.preventDefault();
         artistNav.goToSlide($(this).attr('data-slide-index'));
-      })
+      });
+
+      $('.btn-next, .btn-prev').on("click", function(e){
+        e.preventDefault();
+      });
       // daveFeed.run();
     },
 
