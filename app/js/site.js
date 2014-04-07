@@ -9,10 +9,14 @@
   var sanc = {
 
     construct: function(){
-      var _nav = $('#main-nav');
+      sanc._nav = $('.main-nav');
     },
 
     init: function(){
+
+      // Start smoth scroll
+      smoothScroll.init();
+
       var artistNav = $('#resident-artists').bxSlider({
         infiniteLoop: false,
         pager: false,
@@ -102,31 +106,27 @@
   var smoothScroll = {
 
     init: function(){
-      sanc._nav.on("click", 'li a', function(event){
+
+      console.log(sanc._nav);
+
+      sanc._nav.on('click', 'a', function(event){
         event.preventDefault();
-        smoothScroll.scroll( $(this).attr("href") );
+        console.log('nav click');
+        smoothScroll.scroll( $(this).attr('href') );
       });
 
-      $('.btn-scroll-arrow').on("click", this, function(event){
-        event.preventDefault();
-        smoothScroll.scroll( '#second' );
-      });
-
-      $('.btn-cartridge, .btn-cart-mobile a').on("click", this, function(event){
-        event.preventDefault();
-        smoothScroll.scroll( $(this).attr("href") );
-      });
     },
 
     scroll: function(target){
       $('html, body').animate({
-        scrollTop: $(target).offset().top
+        scrollTop: ($(target).offset().top - 70)
       }, 'slow');
     }
 
   };
 
   $(document).ready(function() {
+    sanc.construct();
     sanc.init();
   });
 

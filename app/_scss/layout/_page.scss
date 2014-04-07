@@ -4,10 +4,12 @@ body{
 }
 header{
   width: 100%;
-  position: relative;
+  position: fixed;
   z-index: 1;
 }
-
+main{
+  padding-top: 70px;
+}
 footer{
   @include clearfix;
   @extend %color-gold;
