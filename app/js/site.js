@@ -13,17 +13,24 @@
     },
 
     init: function(){
-      // $('#resident-artists').bxSlider({
-      //   slideSelector: 'div.artists',
-      //   pager: false,
-      //   // controls: false
-      // });
+      var artistNav = $('#resident-artists').bxSlider({
+        infiniteLoop: false,
+        pagerCustom: '.artist-nav ul',
+        pager: false,
+        controls: false
+      });
 
-      daveFeed.run();
-    }
+      $('.artist-nav a').on('click', function(e){
+        e.preventDefault();
+        artistNav.goToSlide($(this).attr('data-slide-index'));
+      })
+      // daveFeed.run();
+    },
+
+
 
   };
-  var loadButton = $('#dave .gallery');
+  // var loadButton = $('#dave .gallery');
   var daveFeed = new Instafeed({
     get: 'user',
       userId: 266550284,
@@ -33,7 +40,6 @@
       links: 'false',
       template: '<li><img src="{{image}}"></li>',
     mock: 'true',
-
     // custom: {
     //   images: [],
     //   currentImage: 0,

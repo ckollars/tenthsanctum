@@ -58,9 +58,11 @@ header{
   }
 }
 
-
-#fierto, #jay, #tobias{
-  display: none;
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+  *zoom: 1;
 }
 .artist{
   @include clearfix;
