@@ -17,27 +17,13 @@
       // Start smoth scroll
       smoothScroll.init();
 
+      // Startup all galleries
+      siteGalleries.init();
+
       var artistNav = $('#resident-artists').bxSlider({
         infiniteLoop: false,
         pager: false,
         controls: false
-      });
-
-      var tenSancGallery = $('#ten-sanc-gallery').bxSlider({
-        infiniteLoop: false,
-        minSlides: 5,
-        maxSlides: 5,
-        slideWidth: 172,
-        slideMargin: 50,
-        pager: false,
-        // controls: false,
-        nextSelector: '.btn-next',
-        prevSelector: '.btn-prev',
-
-        onSliderLoad: function(){
-          $('#ten-sanc-gallery li:nth-child(5)').css("margin", "0");
-          $('#ten-sanc-gallery').css("opacity", "1");
-        }
       });
 
       $('.artist-nav a').on('click', function(e){
@@ -45,9 +31,6 @@
         artistNav.goToSlide($(this).attr('data-slide-index'));
       });
 
-      $('.btn-next, .btn-prev').on("click", function(e){
-        e.preventDefault();
-      });
       // daveFeed.run();
     },
 
@@ -124,6 +107,119 @@
     }
 
   };
+
+  var siteGalleries = {
+
+    init: function(){
+      siteGalleries.tenSancGallery();
+      siteGalleries.fiertoGallery();
+      siteGalleries.tobiasGallery();
+      siteGalleries.daveGallery();
+      siteGalleries.jayGallery();
+
+      $('.btn-next, .btn-prev').on('click', function(e){
+        e.preventDefault();
+      });
+    },
+
+    tenSancGallery: function(){
+
+      $('#ten-sanc-gallery').bxSlider({
+        infiniteLoop: false,
+        minSlides: 5,
+        maxSlides: 5,
+        slideWidth: 172,
+        slideMargin: 50,
+        pager: false,
+        // controls: false,
+        nextSelector: '#hero .btn-next',
+        prevSelector: '#hero .btn-prev',
+
+        onSliderLoad: function(){
+          $('#ten-sanc-gallery li:nth-child(5)').css('margin', '0');
+          $('#ten-sanc-gallery').css('opacity', '1');
+        }
+      });
+
+    },
+
+    fiertoGallery: function(){
+      $('#fierto-gallery').bxSlider({
+        infiniteLoop: false,
+        minSlides: 5,
+        maxSlides: 5,
+        slideWidth: 172,
+        slideMargin: 50,
+        pager: false,
+        // controls: false,
+        nextSelector: '#fierto .btn-next',
+        prevSelector: '#fierto .btn-prev',
+
+        onSliderLoad: function(){
+          $('#fierto-gallery li:nth-child(5)').css('margin', '0');
+          $('#fierto-gallery').css('opacity', '1');
+        }
+      });
+    },
+
+    tobiasGallery: function(){
+      $('#tobias-gallery').bxSlider({
+        infiniteLoop: false,
+        minSlides: 5,
+        maxSlides: 5,
+        slideWidth: 172,
+        slideMargin: 50,
+        pager: false,
+        // controls: false,
+        nextSelector: '#tobias .btn-next',
+        prevSelector: '#tobias .btn-prev',
+
+        onSliderLoad: function(){
+          $('#tobias-gallery li:nth-child(5)').css('margin', '0');
+          $('#tobias-gallery').css('opacity', '1');
+        }
+      });
+    },
+
+    daveGallery: function(){
+      $('#dave-gallery').bxSlider({
+        infiniteLoop: false,
+        minSlides: 5,
+        maxSlides: 5,
+        slideWidth: 172,
+        slideMargin: 50,
+        pager: false,
+        // controls: false,
+        nextSelector: '#dave .btn-next',
+        prevSelector: '#dave .btn-prev',
+
+        onSliderLoad: function(){
+          $('#dave-gallery li:nth-child(5)').css('margin', '0');
+          $('#dave-gallery').css('opacity', '1');
+        }
+      });
+    },
+
+    jayGallery: function(){
+      $('#jay-gallery').bxSlider({
+        infiniteLoop: false,
+        minSlides: 5,
+        maxSlides: 5,
+        slideWidth: 172,
+        slideMargin: 50,
+        pager: false,
+        // controls: false,
+        nextSelector: '#jay .btn-next',
+        prevSelector: '#jay .btn-prev',
+
+        onSliderLoad: function(){
+          $('#jay-gallery li:nth-child(5)').css('margin', '0');
+          $('#jay-gallery').css('opacity', '1');
+        }
+      });
+    },
+
+  }
 
   $(document).ready(function() {
     sanc.construct();
