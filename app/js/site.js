@@ -17,6 +17,9 @@
       // Start smoth scroll
       smoothScroll.init();
 
+      // Load Jay's Instagram feed.
+      jayFeed.run();
+
       // Startup all galleries
       siteGalleries.init();
 
@@ -31,22 +34,23 @@
         artistNav.goToSlide($(this).attr('data-slide-index'));
       });
 
-      // daveFeed.run();
+
     },
 
 
 
   };
   // var loadButton = $('#dave .gallery');
-  var daveFeed = new Instafeed({
+  var jayFeed = new Instafeed({
     get: 'user',
       userId: 266550284,
       accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
       limit: '25',
-      // resolution: 'thumbnail',
       links: 'false',
-      template: '<li><img src="{{image}}"></li>',
-    mock: 'true',
+      resolution: 'standard_resolution',
+      target: 'jay-gallery',
+      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+    // mock: 'true',
     // custom: {
     //   images: [],
     //   currentImage: 0,
@@ -71,15 +75,18 @@
       return image.tags.indexOf('tenthsanctum') >= 0;
     },
 
-    success: function(data){
-      console.log(data);
-    }
 
-    // after: function(){
-    //   if (!this.hasNext()) {
-    //     loadButton.setAttribute('disabled', 'disabled');
-    //   }
+    // success: function(data){
+    //   console.log(data);
     // }
+
+    after: function(){
+      // if (!this.hasNext()) {
+      //   loadButton.setAttribute('disabled', 'disabled');
+      // }
+      siteGalleries.jayGallery();
+      var images = $('#jay-gallery a').fancybox();
+    }
   });
 
   // loadButton.on('click', function() {
@@ -89,8 +96,6 @@
   var smoothScroll = {
 
     init: function(){
-
-      console.log(sanc._nav);
 
       sanc._nav.on('click', 'a', function(event){
         event.preventDefault();
@@ -115,7 +120,7 @@
       siteGalleries.fiertoGallery();
       siteGalleries.tobiasGallery();
       siteGalleries.daveGallery();
-      siteGalleries.jayGallery();
+      // siteGalleries.jayGallery();
 
       $('.btn-next, .btn-prev').on('click', function(e){
         e.preventDefault();
@@ -219,7 +224,7 @@
       });
     },
 
-  }
+  };
 
   $(document).ready(function() {
     sanc.construct();
