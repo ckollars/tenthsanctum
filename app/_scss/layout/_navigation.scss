@@ -3,17 +3,20 @@
   height: 70px;
 
   @include breakpoint(large){
-    height: 58px;
+    // height: 58px;
   }
   ul{
     @include clearfix;
     padding-top: 26px;
     padding-left: 0;
     list-style: none;
-    text-algin: center;
     @include breakpoint(large){
       padding-left: 30px;
       padding-right: 30px;
+      padding-top: 30px;
+    }
+    @include breakpoint(medium){
+      padding-top: 38px;
     }
     li{
       @extend %pull-left;
@@ -36,7 +39,7 @@
       @include font-size(24px);
     }
     @include breakpoint(medium){
-      @include font-size(19px);
+      @include font-size(17px);
     }
   }
 }
@@ -60,6 +63,10 @@
     width: 40%;
     color: rgba($white, .82);
     letter-spacing: 1px;
+
+    @include breakpoint(medium){
+      @include font-size(19px);
+    }
   }
   ul{
     @extend %margin-0;
@@ -95,6 +102,10 @@
     .active{
       background-color: rgba($gray, 0.1);
       color: rgba($white, .85);
+    }
+
+    @include breakpoint(medium){
+      @include font-size(19px);
     }
   }
 }

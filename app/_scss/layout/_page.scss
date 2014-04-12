@@ -116,9 +116,21 @@ footer{
     width: 42%;
     height: 440px;
 
+    @include breakpoint(medium){
+      background-size:100%;
+      width: 34%;
+      height: auto;
+      margin-right: 30px;
+    }
     img{
       border-radius: 50%;
       margin: 90px 0 0 105px;
+      @include breakpoint(medium){
+        width: 56%;
+        margin: 50px;
+
+        // display: none;
+      }
     }
   }
   .content{
@@ -134,10 +146,18 @@ footer{
     text-shadow: 0 1px 1px $gray;
     text-transform: uppercase;
     margin: 20px 0 0 0;
+
+    @include breakpoint(medium){
+      @include font-size(42px);
+    }
   }
   p{
     @include font-size(18px);
     line-height: 32px;
+    @include breakpoint(medium){
+      @include font-size(16px);
+      line-height: 27px;
+    }
   }
   .contact{
     @include clearfix;
@@ -183,6 +203,11 @@ footer{
 #aftercare{
   background: url(../images/bg-paper.jpg) center top;
   border-bottom: 20px solid $gold;
+
+  @include breakpoint(large){
+    padding-left: 30px;
+    padding-right: 30px;
+  }
   h1{
     @extend %color-gold;
     @extend %margin-0;
@@ -192,6 +217,12 @@ footer{
     font-weight: 800;
     text-shadow: 0 1px 1px $gray;
     text-transform: uppercase;
+
+    @include breakpoint(medium){
+      @include font-size(42px);
+      width: 100%;
+      margin-bottom: 18px;
+    }
   }
   .container{
     @include clearfix;
@@ -202,6 +233,9 @@ footer{
     @extend %pull-left;
     @include font-size(18px);
     width: 60%;
+    @include breakpoint(medium){
+      width: 100%;
+    }
     li{
       margin-bottom: 20px;
     }
@@ -209,6 +243,10 @@ footer{
   img{
     @extend %pull-right;
     margin-top: -100px;
+
+    @include breakpoint(medium){
+      display: none;
+    }
   }
 }
 
