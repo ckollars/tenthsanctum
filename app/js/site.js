@@ -10,6 +10,8 @@
 
     construct: function(){
       sanc._nav = $('.main-nav');
+      sanc._width = $(window).width();
+      sanc._height = $(window).height();
     },
 
     init: function(){
@@ -37,6 +39,11 @@
 
     },
 
+    log: function (data){
+      if( typeof console !== 'undefined'){
+        console.log(data);
+      }
+    }
 
 
   };
@@ -50,42 +57,17 @@
       resolution: 'standard_resolution',
       target: 'jay-gallery',
       template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
-    // mock: 'true',
-    // custom: {
-    //   images: [],
-    //   currentImage: 0,
-    //   showImages: function(){
-    //     var result, image;
-    //     image = this.options.custom.images[this.options.custom.currentImage];
-    //     result = this._makeTemplate(this.options.template, {
-    //       model: image,
-    //       id: image.id,
-    //       link: image.link,
-    //       image: image.images[this.options.resolution].url,
-    //       caption: this._getObjectProperty(image, 'caption.text'),
-    //       likes: image.likes.count,
-    //       comments: image.comments.count,
-    //       location: this._getObjectProperty(image, 'location.name')
-    //     });
-    //     $("#instafeed").html(result);
-    //   }
-    // },
 
     filter: function(image) {
       return image.tags.indexOf('tenthsanctum') >= 0;
     },
 
-
-    // success: function(data){
-    //   console.log(data);
-    // }
-
     after: function(){
-      // if (!this.hasNext()) {
-      //   loadButton.setAttribute('disabled', 'disabled');
-      // }
       siteGalleries.jayGallery();
-      var images = $('#jay-gallery a').fancybox();
+      var images = $('#jay-gallery a').fancybox({
+        'overlayOpacity' : '0.9',
+        'overlayColor' : '#131313'
+      });
     }
   });
 
@@ -116,7 +98,28 @@
   var siteGalleries = {
 
     init: function(){
-      siteGalleries.tenSancGallery();
+      var maxSlide, margin;
+      if( sanc._width <= 640 && sanc._width >= 480){
+        maxSlide = 2;
+        margin = 30;
+      }
+      if( sanc._width < 480){
+        maxSlide = 1;
+        margin = 30;
+      }
+      if( sanc._width > 640 && sanc._width <= 900){
+        maxSlide = 3;
+        margin = 50;
+      }
+      if( sanc._width > 900 && sanc._width <= 1024){
+        maxSlide = 4;
+        margin = 50;
+      }
+      if( sanc._width > 1024){
+        maxSlide = 5;
+        margin = 50;
+      }
+      siteGalleries.tenSancGallery(maxSlide, margin);
       siteGalleries.fiertoGallery();
       siteGalleries.tobiasGallery();
       siteGalleries.daveGallery();
@@ -127,21 +130,24 @@
       });
     },
 
-    tenSancGallery: function(){
-
+    tenSancGallery: function(maxSlideQty, margin){
       $('#ten-sanc-gallery').bxSlider({
         infiniteLoop: false,
-        minSlides: 5,
-        maxSlides: 5,
+        minSlides: 1,
+        maxSlides: maxSlideQty,
         slideWidth: 172,
-        slideMargin: 50,
+        slideMargin: margin,
         pager: false,
         // controls: false,
         nextSelector: '#hero .btn-next',
         prevSelector: '#hero .btn-prev',
 
         onSliderLoad: function(){
-          $('#ten-sanc-gallery li:nth-child(5)').css('margin', '0');
+          if( sanc._width > 640 && sanc._width <= 768){
+            // $('#ten-sanc-gallery li:nth-child(3)').css('margin', '0');
+          }else{
+            // $('#ten-sanc-gallery li:nth-child(5)').css('margin', '0');
+          }
           $('#ten-sanc-gallery').css('opacity', '1');
         }
       });
@@ -151,7 +157,7 @@
     fiertoGallery: function(){
       $('#fierto-gallery').bxSlider({
         infiniteLoop: false,
-        minSlides: 5,
+        minSlides: 1,
         maxSlides: 5,
         slideWidth: 172,
         slideMargin: 50,
@@ -170,7 +176,7 @@
     tobiasGallery: function(){
       $('#tobias-gallery').bxSlider({
         infiniteLoop: false,
-        minSlides: 5,
+        minSlides: 1,
         maxSlides: 5,
         slideWidth: 172,
         slideMargin: 50,
@@ -189,7 +195,7 @@
     daveGallery: function(){
       $('#dave-gallery').bxSlider({
         infiniteLoop: false,
-        minSlides: 5,
+        minSlides: 1,
         maxSlides: 5,
         slideWidth: 172,
         slideMargin: 50,
@@ -208,7 +214,7 @@
     jayGallery: function(){
       $('#jay-gallery').bxSlider({
         infiniteLoop: false,
-        minSlides: 5,
+        minSlides: 1,
         maxSlides: 5,
         slideWidth: 172,
         slideMargin: 50,
@@ -225,6 +231,11 @@
     },
 
   };
+
+  function viewportSize(){
+    sanc._height = $(window).height();
+    sanc._width = $(window).width();
+  }
 
   $(document).ready(function() {
     sanc.construct();
