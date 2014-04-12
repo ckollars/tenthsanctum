@@ -112,33 +112,37 @@ footer{
   figure{
     @extend %pull-left;
     background: url(../images/bg-avatar-ring.png) no-repeat center center;
+    background-size: 100%;
     float: left;
     width: 42%;
-    height: 440px;
-
+    height: auto;
+    margin-right: 30px;
     @include breakpoint(medium){
       background-size:100%;
       width: 34%;
-      height: auto;
       margin-right: 30px;
     }
     img{
       border-radius: 50%;
-      margin: 90px 0 0 105px;
+      margin: 22%;
+      @include breakpoint(large){
+        margin: 21%;
+        width: 56%;
+      }
       @include breakpoint(medium){
         width: 56%;
-        margin: 50px;
+        margin: 21%;
 
         // display: none;
       }
     }
   }
-  .content{
-    @extend %pull-left;
-    position: relative;
-    width: 58%;
-    padding-left: 60px;
-  }
+  // .content{
+  //   @extend %pull-left;
+  //   position: relative;
+  //   width: 58%;
+  //   padding-left: 60px;
+  // }
   h1{
     @extend %color-gold;
     @include font-size(60px);
@@ -162,12 +166,21 @@ footer{
   .contact{
     @include clearfix;
     margin-top: 40px;
+    max-width: 70%;
+    margin: 40px auto 0 auto;
+    @include breakpoint(medium){
+      max-width: 100%;
+    }
     ul{
       @extend %pull-left;
       margin: 0 24px 0 0;
       padding: 14px 24px 14px 0;
       list-style: none;
       border-right: 1px solid $gold;
+      @include breakpoint(medium){
+        float: none;
+        border-right: none;
+      }
       li{
         @extend %display-inline-block;
         padding: 0 4px;
@@ -197,6 +210,9 @@ footer{
     @extend %margin-0;
     @extend %pull-left;
     @include font-size(16px);
+    @include breakpoint(medium){
+      float: none;
+    }
   }
 }
 
