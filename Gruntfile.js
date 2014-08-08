@@ -40,15 +40,14 @@ module.exports = function(grunt) {
         files: ['<%= kollab.app %>/js/*.js','<%= kollab.app %>/js/vendor/*.js'],
         tasks: ['concat:server', 'copy:scripts']
       },
-      // assets: {
-      //   files: [
-      //     '<%= kollab.app %>css/*}',
-      //     '<%= kollab.app %>images/*}',
-      //     '<%= kollab.app %>/*.html}',
-      //     '<%= kollab.app %>js/*}'
-      //   ],
-      //   tasks: ['copy:server']
-      // }
+      assets: {
+        files: [
+          '<%= kollab.app %>images/*}',
+          '<%= kollab.app %>/*.html}',
+          '<%= kollab.app %>js/*}'
+        ],
+        tasks: ['copy:server']
+      }
     },
 
     grunticon: {
