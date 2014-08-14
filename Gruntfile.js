@@ -34,28 +34,36 @@ module.exports = function(grunt) {
     watch: {
       compass: {
         files: ['<%= kollab.app %>/_scss/**/*.scss'],
-        tasks: ['compass:server']
+        tasks: ['compass:server'],
+        options: {
+          livereload: true,
+        }
       },
       js: {
         files: ['<%= kollab.app %>/js/*.js','<%= kollab.app %>/js/vendor/*.js'],
-        tasks: ['concat:server', 'copy:scripts']
+        tasks: ['concat:server', 'copy:scripts'],
+        options: {
+          livereload: true,
+        }
       },
       assets: {
         files: [
-          '<%= kollab.app %>images/*}',
-          '<%= kollab.app %>/*.html}',
-          '<%= kollab.app %>js/*}'
+          '<%= kollab.app %>/images/**/*',
+          '<%= kollab.app %>/*.html',
         ],
-        tasks: ['copy:server']
+        tasks: ['copy:server'],
+        options: {
+          livereload: true,
+        }
       }
     },
 
     grunticon: {
       icons: {
         options: {
-          src: '<%= kollab.app %>/svgs/',
-          dest: '<%= kollab.app %>/svgs/grunticon',
-          pngfolder: '<%= kollab.app %>/icons/',
+          src: '<%= kollab.app %>/images/svg/',
+          dest: '<%= kollab.app %>/images/svg/grunticon',
+          pngfolder: '<%= kollab.app %>',
           datasvgcss: '_icons.data.svg.scss',
           datapngcss: '_icons.data.png.scss',
           urlpngcss: '_icons.fallback.scss'
@@ -104,9 +112,9 @@ module.exports = function(grunt) {
       },
       server: {
         files: [
-          { expand: true, cwd: '<%= kollab.app %>/images', src: '**', dest: '<%= kollab.dev %>/images' },
-          { expand: true, flatten: true, cwd: '<%= kollab.app %>', src: '*.html', dest: '<%= kollab.dev %>', filter: 'isFile' },
-          { expand: true, flatten: true, src: '<%= kollab.app %>/js/no-concat/modernizr.js', dest: '<%= kollab.dev %>/js'},
+          { expand: true, cwd: '<%= kollab.app %>/images', src: '**', dest: '<%= kollab.dev %>/images/' },
+          { expand: true, flatten: true, cwd: '<%= kollab.app %>', src: 'index.html', dest: '<%= kollab.dev %>', filter: 'isFile' },
+          { expand: true, flatten: true, src: '<%= kollab.app %>/js/no-concat/modernizr.js', dest: '<%= kollab.dev %>/js'}
         ]
       },
       dist: {

@@ -25,8 +25,10 @@
       // Startup all galleries
       siteGalleries.init();
 
+      // Artist Slider
       var artistNav = $('#resident-artists').bxSlider({
         infiniteLoop: false,
+        adaptiveHeight: true,
         pager: false,
         controls: false
       });
@@ -63,7 +65,7 @@
     },
 
     after: function(){
-      siteGalleries.jayGallery();
+      siteGalleries.size('jay');
       var images = $('#jay-gallery a').fancybox({
         'overlayOpacity' : '0.9',
         'overlayColor' : '#131313'
@@ -97,37 +99,59 @@
 
   var siteGalleries = {
 
+    _maxSlide: null,
+    _margin: null,
+
     init: function(){
-      var maxSlide, margin;
-      if( sanc._width <= 640 && sanc._width >= 480){
-        maxSlide = 2;
-        margin = 30;
-      }
-      if( sanc._width < 480){
-        maxSlide = 1;
-        margin = 30;
-      }
-      if( sanc._width > 640 && sanc._width <= 900){
-        maxSlide = 3;
-        margin = 50;
-      }
-      if( sanc._width > 900 && sanc._width <= 1024){
-        maxSlide = 4;
-        margin = 50;
-      }
-      if( sanc._width > 1024){
-        maxSlide = 5;
-        margin = 50;
-      }
-      siteGalleries.tenSancGallery(maxSlide, margin);
-      siteGalleries.fiertoGallery();
-      siteGalleries.tobiasGallery();
-      siteGalleries.daveGallery();
-      // siteGalleries.jayGallery();
+      siteGalleries.size();
+
+      // Temporary call of galleries until everyone is on instafeed.
+      siteGalleries.tenSancGallery(siteGalleries._maxSlide, siteGalleries._margin);
+      siteGalleries.fiertoGallery(siteGalleries._maxSlide, siteGalleries._margin);
+      siteGalleries.tobiasGallery(siteGalleries._maxSlide, siteGalleries._margin);
+      siteGalleries.daveGallery(siteGalleries._maxSlide, siteGalleries._margin);
 
       $('.btn-next, .btn-prev').on('click', function(e){
         e.preventDefault();
       });
+    },
+
+    // TODO: Rework resize to only fire after the resize is done. This is a nice to have.
+    size: function(gallery){
+      if( sanc._width <= 640 && sanc._width >= 480){
+        siteGalleries._maxSlide = 2;
+        siteGalleries._margin = 30;
+      }
+      if( sanc._width < 480){
+        siteGalleries._maxSlide = 1;
+        siteGalleries._margin = 30;
+      }
+      if( sanc._width > 640 && sanc._width <= 900){
+        siteGalleries._maxSlide = 3;
+        siteGalleries._margin = 50;
+      }
+      if( sanc._width > 900 && sanc._width <= 1024){
+        siteGalleries._maxSlide = 4;
+        siteGalleries._margin = 50;
+      }
+      if( sanc._width > 1024){
+        siteGalleries._maxSlide = 5;
+        siteGalleries._margin = 50;
+      }
+      switch(gallery){
+        case 'jay':
+          siteGalleries.jayGallery(siteGalleries._maxSlide, siteGalleries._margin);
+          break;
+        case 'dave':
+          siteGalleries.daveGallery(siteGalleries._maxSlide, siteGalleries._margin);
+          break;
+        case 'fierto':
+          siteGalleries.fiertoGallery(siteGalleries._maxSlide, siteGalleries._margin);
+          break;
+        case 'tobias':
+          siteGalleries.tobiasGallery(siteGalleries._maxSlide, siteGalleries._margin);
+          break;
+      }
     },
 
     tenSancGallery: function(maxSlideQty, margin){
@@ -138,31 +162,24 @@
         slideWidth: 172,
         slideMargin: margin,
         pager: false,
-        // controls: false,
         nextSelector: '#hero .btn-next',
         prevSelector: '#hero .btn-prev',
 
         onSliderLoad: function(){
-          if( sanc._width > 640 && sanc._width <= 768){
-            // $('#ten-sanc-gallery li:nth-child(3)').css('margin', '0');
-          }else{
-            // $('#ten-sanc-gallery li:nth-child(5)').css('margin', '0');
-          }
           $('#ten-sanc-gallery').css('opacity', '1');
         }
       });
 
     },
 
-    fiertoGallery: function(){
+    fiertoGallery: function(maxSlideQty, margin){
       $('#fierto-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
-        maxSlides: 5,
+        maxSlides: maxSlideQty,
         slideWidth: 172,
-        slideMargin: 50,
+        slideMargin: margin,
         pager: false,
-        // controls: false,
         nextSelector: '#fierto .btn-next',
         prevSelector: '#fierto .btn-prev',
 
@@ -173,15 +190,14 @@
       });
     },
 
-    tobiasGallery: function(){
+    tobiasGallery: function(maxSlideQty, margin){
       $('#tobias-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
-        maxSlides: 5,
+        maxSlides: maxSlideQty,
         slideWidth: 172,
-        slideMargin: 50,
+        slideMargin: margin,
         pager: false,
-        // controls: false,
         nextSelector: '#tobias .btn-next',
         prevSelector: '#tobias .btn-prev',
 
@@ -192,15 +208,14 @@
       });
     },
 
-    daveGallery: function(){
+    daveGallery: function(maxSlideQty, margin){
       $('#dave-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
-        maxSlides: 5,
+        maxSlides: maxSlideQty,
         slideWidth: 172,
-        slideMargin: 50,
+        slideMargin: margin,
         pager: false,
-        // controls: false,
         nextSelector: '#dave .btn-next',
         prevSelector: '#dave .btn-prev',
 
@@ -211,15 +226,14 @@
       });
     },
 
-    jayGallery: function(){
+    jayGallery: function(maxSlideQty, margin){
       $('#jay-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
-        maxSlides: 5,
+        maxSlides: maxSlideQty,
         slideWidth: 172,
-        slideMargin: 50,
+        slideMargin: margin,
         pager: false,
-        // controls: false,
         nextSelector: '#jay .btn-next',
         prevSelector: '#jay .btn-prev',
 
@@ -241,6 +255,7 @@
     sanc.construct();
     sanc.init();
   });
+
 
 
 })(jQuery);

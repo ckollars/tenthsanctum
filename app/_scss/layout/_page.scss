@@ -43,13 +43,13 @@ footer{
       padding-top: 32px;
       margin-right: 10px;
       &.facebook{
-        background: url(../images/svg/facebook-gold.svg) no-repeat;
+        background: url(../images/facebook-gold.svg) no-repeat;
       }
       &.instagram{
-        background: url(../images/svg/instagram-gold.svg) no-repeat;
+        background: url(../images/instagram-gold.svg) no-repeat;
       }
       &.twitter{
-        background: url(../images/svg/twitter-gold.svg) no-repeat center center;
+        background: url(../images/twitter-gold.svg) no-repeat center center;
       }
     }
   }
@@ -117,6 +117,7 @@ footer{
     width: 42%;
     height: auto;
     margin-right: 30px;
+    margin-bottom: 30px;
     @include breakpoint(medium){
       background-size:100%;
       width: 34%;
@@ -137,38 +138,45 @@ footer{
       }
     }
   }
-  // .content{
-  //   @extend %pull-left;
-  //   position: relative;
-  //   width: 58%;
-  //   padding-left: 60px;
-  // }
+
+  .content{
+    @extend %pull-left;
+    position: relative;
+    width: 55%;
+    max-height: 336px;
+    overflow: auto;
+    p:last-child{
+      margin-bottom: 0;
+    }
+  }
   h1{
     @extend %color-gold;
-    @include font-size(60px);
+    @include font-size(42px);
     font-weight: 800;
     text-shadow: 0 1px 1px $gray;
     text-transform: uppercase;
     margin: 20px 0 0 0;
 
     @include breakpoint(medium){
-      @include font-size(42px);
+      @include font-size(36px);
     }
   }
   p{
-    @include font-size(18px);
-    line-height: 32px;
+    @include font-size(16px);
+    line-height: 24px;
     @include breakpoint(medium){
-      @include font-size(16px);
-      line-height: 27px;
+      @include font-size(14px);
+      line-height: 21px;
     }
   }
   .contact{
     @include clearfix;
+    @extend %pull-right;
     margin-top: 40px;
-    max-width: 70%;
-    margin: 40px auto 0 auto;
+    width: 55%;
+    // margin: 40px auto 0 auto;
     @include breakpoint(medium){
+      float: none;
       max-width: 100%;
     }
     ul{
