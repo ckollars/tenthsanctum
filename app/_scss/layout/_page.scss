@@ -80,9 +80,9 @@ footer{
   background: url(../images/shop-interior.jpg) no-repeat center center;
   background-size: cover;
   h1{
-    @include font-size(68px);
+    @include font-size(48px);
     letter-spacing: 2px;
-    font-weight: 900;
+    font-weight: 700;
     color: #f4e9d0;
     text-shadow: 0 4px 4px $gray;
     padding: 120px 0;
