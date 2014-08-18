@@ -14,9 +14,7 @@
   <meta property="og:site_name" content="Tenth Sanctum Tattoo">
   <meta property="og:description" content="">
 
-  <link rel="stylesheet" href="/css/styles.css">
   <script src="/js/modernizr.js"></script>
-
   <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -24,12 +22,21 @@
       e.src='//www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
+
+      /* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon( [ "/css/icons.data.svg.css", "/css/icons.data.png.css", "/css/icons.fallback.css" ] );
   </script>
+  <noscript><link href="/app/svg/grunticon/icons.fallback.css" rel="stylesheet"></noscript>
+
+  <link rel="stylesheet" href="/css/styles.css">
+
 </head>
 <body>
   <header>
     <nav class="main-nav" role="navigation">
-      <ul class="container">
+      <a href="#main-nav" class="icon-mobile-menu">Menu</a>
+      <ul id="main-menu" class="container">
         <li><a href="#about" title="About the shop">About Us</a></li>
         <li><a href="#artists" title="Resident artists">Artists</a></li>
         <li><a href="#aftercare" title="Tattoo aftercare">Aftercare</a></li>
@@ -43,8 +50,8 @@
       <div class="gallery">
         <div class="controls">
           <div class="container">
-            <span class="btn-prev"></span>
-            <span class="btn-next"></span>
+            <span class="btn-prev icon-prev-arrow"></span>
+            <span class="btn-next icon-next-arrow"></span>
           </div>
         </div>
         <ul id="ten-sanc-gallery" class="page">
@@ -91,7 +98,7 @@
             </div>
             <div class="contact">
               <ul class="social">
-                <li><a class="instagram" title="Follow on Instagram" href="http://instagram.com/fierto402">Instagram</a></li>
+                <li><a class="icon-instagram" title="Follow on Instagram" href="http://instagram.com/fierto402">Instagram</a></li>
               </ul>
               <p class="info">
                 <b>In the shop:</b> Monday thru Wednesday, Friday &amp; Saturday<br>
@@ -101,8 +108,8 @@
           <div class="gallery">
             <div class="controls">
               <div class="container">
-                <a href="" class="btn-prev"></a>
-                <a href="" class="btn-next"></a>
+                <a href="" class="btn-prev icon-prev-arrow"></a>
+                <a href="" class="btn-next icon-next-arrow"></a>
               </div>
             </div>
             <ul id="fierto-gallery" class="page">
@@ -135,7 +142,7 @@
             </div>
             <div class="contact">
               <ul class="social">
-                <li><a class="instagram" title="Follow on Instagram" href="http:://instagram.com/tobias10thtattoos">Instagram</a></li>
+                <li><a class="icon-instagram" title="Follow on Instagram" href="http:://instagram.com/tobias10thtattoos">Instagram</a></li>
               </ul>
               <p class="info">
                 <b>In the shop:</b> Monday thru Wednesday, Friday &amp; Saturday<br>
@@ -145,8 +152,8 @@
           <div class="gallery">
             <div class="controls">
               <div class="container">
-                <a href="" class="btn-prev"></a>
-                <a href="" class="btn-next"></a>
+                <a href="" class="btn-prev icon-prev-arrow"></a>
+                <a href="" class="btn-next icon-next-arrow"></a>
               </div>
             </div>
             <ul id="tobias-gallery" class="page">
@@ -183,7 +190,7 @@
             </div>
             <div class="contact">
               <ul class="social">
-                <li><a class="instagram" title="Follow on Instagram" href="http://instagram.com/davekoenigart">Instagram</a></li>
+                <li><a class="icon-instagram" title="Follow on Instagram" href="http://instagram.com/davekoenigart">Instagram</a></li>
               </ul>
               <p class="info">
                 <b>In the shop:</b> Tuesday thru Saturday<br>
@@ -193,8 +200,8 @@
           <div class="gallery">
             <div class="controls">
               <div class="container">
-                <a href="" class="btn-prev"></a>
-                <a href="" class="btn-next"></a>
+                <a href="" class="btn-prev icon-prev-arrow"></a>
+                <a href="" class="btn-next icon-next-arrow"></a>
               </div>
             </div>
             <ul id="dave-gallery" class="page">
@@ -227,7 +234,7 @@
             </div>
             <div class="contact">
               <ul class="social">
-                <li><a class="instagram" title="Follow on Instagram" href="http://instagram.com/1010jbarnett">Instagram</a></li>
+                <li><a class="icon-instagram" title="Follow on Instagram" href="http://instagram.com/1010jbarnett">Instagram</a></li>
                 <li><a class="facebook" title="Follow on Facebook" href="https://www.facebook.com/1010.j.barnett">Facebook</a></li>
               </ul>
               <p class="info">
@@ -238,8 +245,8 @@
           <div class="gallery">
             <div class="controls">
               <div class="container">
-                <a href="" class="btn-prev"></a>
-                <a href="" class="btn-next"></a>
+                <a href="" class="btn-prev icon-prev-arrow"></a>
+                <a href="" class="btn-next icon-next-arrow"></a>
               </div>
             </div>
             <ul id="jay-gallery" class="page"></ul>
@@ -274,8 +281,8 @@
         <p>Call: xxx-xxx-xxxx</p>
       </address>
       <div class="social">
-        <a class="facebook" href="https://www.facebook.com/pages/Tenth-Sanctum-Tattoo/268140513310691">Facebook</a>
-        <a class="instagram" href="http://instagram.com/tenthsanctum">Instagram</a>
+        <a class="icon-facebook-gold" href="https://www.facebook.com/pages/Tenth-Sanctum-Tattoo/268140513310691">Facebook</a>
+        <a class="icon-instagram-gold" href="http://instagram.com/tenthsanctum">Instagram</a>
       </div>
       <p class="copyright"></p>
     </div>

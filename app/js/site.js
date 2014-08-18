@@ -38,6 +38,10 @@
         artistNav.goToSlide($(this).attr('data-slide-index'));
       });
 
+      $('.icon-mobile-menu').on('click', function(e){
+        e.preventDefault();
+        $('body').toggleClass('show-mobile-menu');
+      })
 
     },
 

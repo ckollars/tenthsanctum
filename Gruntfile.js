@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     },
     clean: {
       grunticon: {
-        src: ['<%= kollab.app %>/svgs/grunticon', '<% kollab.app %>/svgs/icons']
+        src: ['<%= kollab.app %>/svg/grunticon']
       },
       server: [
         '_dev'
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
     watch: {
       compass: {
         files: ['<%= kollab.app %>/_scss/**/*.scss'],
-        tasks: ['compass:server'],
+        tasks: ['compass:server', 'copy:server'],
         options: {
           livereload: true,
         }
@@ -61,12 +61,12 @@ module.exports = function(grunt) {
     grunticon: {
       icons: {
         options: {
-          src: '<%= kollab.app %>/images/svg/',
-          dest: '<%= kollab.app %>/images/svg/grunticon',
-          pngfolder: '<%= kollab.app %>',
-          datasvgcss: '_icons.data.svg.scss',
-          datapngcss: '_icons.data.png.scss',
-          urlpngcss: '_icons.fallback.scss'
+          src: '<%= kollab.app %>/svg/',
+          dest: '<%= kollab.app %>/svg/grunticon/',
+          pngfolder: 'png',
+          datasvgcss: 'icons.data.svg.css',
+          datapngcss: 'icons.data.png.css',
+          urlpngcss: 'icons.fallback.css'
         }
       }
     },
@@ -86,7 +86,7 @@ module.exports = function(grunt) {
       },
       server: {
         options: {
-          cssDir: '<%= kollab.dev %>/css',
+          cssDir: '<%= kollab.app %>/css',
           environment: 'development',
           outputStyle: 'expanded',
           relativeAssets: true,
@@ -105,14 +105,26 @@ module.exports = function(grunt) {
 
 
     copy: {
+      grunticon: {
+        files: [
+          { expand: true, cwd: '<%= kollab.app %>/svg/grunticon/png/', src: '**', dest: '<%= kollab.app %>/images/' },
+          { expand: true, cwd: '<%= kollab.app %>/svg/grunticon/', src: '*.css', dest: '<%= kollab.app %>/css/' }
+        ]
+      },
       scripts: {
         files: [
           { expand: true, flatten: true, src: '<%= kollab.app %>/js/no-concat/modernizr.js', dest: '<%= kollab.dev %>/js'},
         ]
       },
+      images: {
+        files: [
+
+        ]
+      },
       server: {
         files: [
           { expand: true, cwd: '<%= kollab.app %>/images', src: '**', dest: '<%= kollab.dev %>/images/' },
+          { expand: true, cwd: '<%= kollab.app %>/css', src: '**', dest: '<%= kollab.dev %>/css/' },
           { expand: true, flatten: true, cwd: '<%= kollab.app %>', src: 'index.html', dest: '<%= kollab.dev %>', filter: 'isFile' },
           { expand: true, flatten: true, src: '<%= kollab.app %>/js/no-concat/modernizr.js', dest: '<%= kollab.dev %>/js'}
         ]

@@ -74,7 +74,8 @@
 }
 .btn-prev a{
   @extend %pull-left;
-  background: #a07a22 url(../images/svg/prev-arrow.svg) no-repeat 13px center;
+  background-color: #a07a22;
+  background-position: 13px center;
 
   @include breakpoint(large){
     background-size: 40%;
@@ -83,7 +84,8 @@
 }
 .btn-next a{
   @extend %pull-right;
-  background: #a07a22 url(../images/svg/next-arrow.svg) no-repeat 17px center;
+  background-color: #a07a22;
+  background-position: 17px center;
 
   @include breakpoint(large){
     background-size: 40%;

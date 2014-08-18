@@ -10,6 +10,9 @@ header{
 }
 main{
   padding-top: 70px;
+  @include breakpoint(xsmall){
+    padding-top: 48px;
+  }
 }
 footer{
   @include clearfix;
@@ -42,15 +45,15 @@ footer{
       height: 0;
       padding-top: 32px;
       margin-right: 10px;
-      &.facebook{
-        background: url(../images/facebook-gold.svg) no-repeat;
-      }
-      &.instagram{
-        background: url(../images/instagram-gold.svg) no-repeat;
-      }
-      &.twitter{
-        background: url(../images/twitter-gold.svg) no-repeat center center;
-      }
+      // &.facebook{
+      //   background: url(../images/facebook-gold.svg) no-repeat;
+      // }
+      // &.instagram{
+      //   background: url(../images/instagram-gold.svg) no-repeat;
+      // }
+      // &.twitter{
+      //   background: url(../images/twitter-gold.svg) no-repeat center center;
+      // }
     }
   }
 }
