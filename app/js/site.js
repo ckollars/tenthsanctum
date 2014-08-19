@@ -41,7 +41,12 @@
       $('.icon-mobile-menu').on('click', function(e){
         e.preventDefault();
         $('body').toggleClass('show-mobile-menu');
-      })
+      });
+
+      $( window ).on( 'orientationchange', function( event ) {
+        console.log( "This device is in " + event.orientation + " mode!" );
+        siteGalleries.size('tenSancGallery');
+      });
 
     },
 
@@ -85,9 +90,9 @@
 
     init: function(){
 
-      sanc._nav.on('click', 'a', function(event){
+      sanc._nav.on('click', 'li a', function(event){
         event.preventDefault();
-        console.log('nav click');
+        $('body').toggleClass('show-mobile-menu');
         smoothScroll.scroll( $(this).attr('href') );
       });
 
@@ -105,6 +110,8 @@
 
     _maxSlide: null,
     _margin: null,
+    _tenSancGal: null,
+    _jayGal: null,
 
     init: function(){
       siteGalleries.size();
@@ -122,23 +129,27 @@
 
     // TODO: Rework resize to only fire after the resize is done. This is a nice to have.
     size: function(gallery){
-      if( sanc._width <= 640 && sanc._width >= 480){
+      if( sanc._width <= 640 && sanc._width > 480){
         siteGalleries._maxSlide = 2;
-        siteGalleries._margin = 30;
+        siteGalleries._margin = 20;
       }
-      if( sanc._width < 480){
+      if( sanc._width <= 480){
         siteGalleries._maxSlide = 1;
-        siteGalleries._margin = 30;
+        siteGalleries._margin = 0;
       }
       if( sanc._width > 640 && sanc._width <= 900){
         siteGalleries._maxSlide = 3;
-        siteGalleries._margin = 50;
+        siteGalleries._margin = 30;
       }
       if( sanc._width > 900 && sanc._width <= 1024){
         siteGalleries._maxSlide = 4;
-        siteGalleries._margin = 50;
+        siteGalleries._margin = 20;
       }
-      if( sanc._width > 1024){
+      if( sanc._width > 1024 && sanc._width <= 1200){
+        siteGalleries._maxSlide = 5;
+        siteGalleries._margin = 10;
+      }
+      if( sanc._width > 1200){
         siteGalleries._maxSlide = 5;
         siteGalleries._margin = 50;
       }
@@ -155,11 +166,15 @@
         case 'tobias':
           siteGalleries.tobiasGallery(siteGalleries._maxSlide, siteGalleries._margin);
           break;
+        case 'tenSancGallery':
+          // siteGalleries._tenSancGal.destroySlider();
+          siteGalleries.tenSancGallery(siteGalleries._maxSlide, siteGalleries._margin);
+          break;
       }
     },
 
     tenSancGallery: function(maxSlideQty, margin){
-      $('#ten-sanc-gallery').bxSlider({
+      siteGalleries._tenSancGal = $('#ten-sanc-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
         maxSlides: maxSlideQty,

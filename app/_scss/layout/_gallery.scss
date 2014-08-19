@@ -60,16 +60,15 @@
   @extend %display-block;
   @include box-shadow(rgba($white, .4) 0 1px 2px 0, rgba($gray, .6) 0 0 4px 0 inset);
   overflow: hidden;
-  // border: 2px solid rgba($gray, .2);
   border-radius: 50%;
   width: 50px;
   height: 0;
   padding-top: 50px;
 
-  @include breakpoint(large){
-    width: 30px;
-    padding-top: 30px;
-  }
+  // @include breakpoint("max-width: 480px"){
+  //   width: 30px;
+  //   padding-top: 30px;
+  // }
 
 }
 .btn-prev a{
@@ -77,20 +76,20 @@
   background-color: #a07a22;
   background-position: 13px center;
 
-  @include breakpoint(large){
-    background-size: 40%;
-    background-position: 8px center;
-  }
+  // @include breakpoint(large){
+  //   background-size: 40%;
+  //   background-position: 8px center;
+  // }
 }
 .btn-next a{
   @extend %pull-right;
   background-color: #a07a22;
   background-position: 17px center;
 
-  @include breakpoint(large){
-    background-size: 40%;
-    background-position: 10px center;
-  }
+  // @include breakpoint(large){
+  //   background-size: 40%;
+  //   background-position: 10px center;
+  // }
 }
 
 #ten-sanc-gallery, #jay-gallery, #tobias-gallery, #fierto-gallery, #dave-gallery{

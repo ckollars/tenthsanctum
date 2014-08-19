@@ -96,6 +96,15 @@
     @include breakpoint(medium){
       @include font-size(19px);
     }
+
+    @include breakpoint(xsmall){
+      @include font-size(24px);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba($gray, 0.6);
+      text-align: center;
+      float: none;
+      width: 100%;
+    }
   }
   ul{
     @extend %margin-0;
@@ -106,6 +115,14 @@
     border-right: 1px solid rgba($white, 0.4);
     list-style: none;
     width: 60%;
+
+    @include breakpoint(xsmall){
+      float: none;
+      width: 100%;
+      border-left: none;
+      border-right: none;
+    }
+
     li{
       @extend %pull-left;
       display: block;
@@ -113,6 +130,20 @@
       border-left: 1px solid rgba($white, 0.4);
       width: 25%;
       text-align: center;
+      @include breakpoint(xsmall){
+        border-top: 1px solid rgba($white, 0.4);
+      }
+      &:first-child{
+        @include breakpoint(xsmall){
+          border-left: none;
+        }
+      }
+      &:last-child{
+        @include breakpoint(xsmall){
+          border-right: none;
+        }
+      }
+
     }
   }
   a{
@@ -135,6 +166,10 @@
 
     @include breakpoint(medium){
       @include font-size(19px);
+    }
+
+    @include breakpoint(xsmall){
+      @include font-size(16px);
     }
   }
 }
