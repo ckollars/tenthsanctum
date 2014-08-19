@@ -122,6 +122,10 @@ footer{
 .artist{
   @include clearfix;
   background: url(../images/bg-paper.jpg) center top;
+
+  @include breakpoint(large){
+    min-height: 800px;
+  }
   > .container{
     @include clearfix;
     padding: 40px 30px;
@@ -176,6 +180,7 @@ footer{
     @extend %pull-left;
     position: relative;
     width: 52%;
+    min-height: 300px;
     max-height: 336px;
     overflow: auto;
 

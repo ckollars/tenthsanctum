@@ -668,13 +668,19 @@ footer .social a {
   *zoom: 1;
   background: url(../images/bg-paper.jpg) center top;
 }
-/* line 125, ../_scss/layout/_page.scss */
+@media (max-width: 1200px) {
+  /* line 122, ../_scss/layout/_page.scss */
+  .artist {
+    min-height: 800px;
+  }
+}
+/* line 129, ../_scss/layout/_page.scss */
 .artist > .container {
   overflow: hidden;
   *zoom: 1;
   padding: 40px 30px;
 }
-/* line 129, ../_scss/layout/_page.scss */
+/* line 133, ../_scss/layout/_page.scss */
 .artist figure {
   background: url(../images/bg-avatar-ring.png) no-repeat center center;
   background-size: 100%;
@@ -684,7 +690,7 @@ footer .social a {
   margin-right: 6%;
 }
 @media (max-width: 1000px) {
-  /* line 129, ../_scss/layout/_page.scss */
+  /* line 133, ../_scss/layout/_page.scss */
   .artist figure {
     background-size: 100%;
     width: 34%;
@@ -692,7 +698,7 @@ footer .social a {
   }
 }
 @media (max-width: 640px) {
-  /* line 129, ../_scss/layout/_page.scss */
+  /* line 133, ../_scss/layout/_page.scss */
   .artist figure {
     width: 100%;
     background: none;
@@ -701,62 +707,63 @@ footer .social a {
     text-align: center;
   }
 }
-/* line 153, ../_scss/layout/_page.scss */
+/* line 157, ../_scss/layout/_page.scss */
 .artist figure img {
   border-radius: 50%;
   margin: 22%;
 }
 @media (max-width: 1200px) {
-  /* line 153, ../_scss/layout/_page.scss */
+  /* line 157, ../_scss/layout/_page.scss */
   .artist figure img {
     margin: 21%;
     width: 56%;
   }
 }
 @media (max-width: 1000px) {
-  /* line 153, ../_scss/layout/_page.scss */
+  /* line 157, ../_scss/layout/_page.scss */
   .artist figure img {
     width: 56%;
     margin: 21%;
   }
 }
 @media (max-width: 640px) {
-  /* line 153, ../_scss/layout/_page.scss */
+  /* line 157, ../_scss/layout/_page.scss */
   .artist figure img {
     width: 56%;
     margin: 0 21%;
   }
 }
-/* line 171, ../_scss/layout/_page.scss */
+/* line 175, ../_scss/layout/_page.scss */
 .artist .wrapper {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 175, ../_scss/layout/_page.scss */
+/* line 179, ../_scss/layout/_page.scss */
 .artist .content {
   position: relative;
   width: 52%;
+  min-height: 300px;
   max-height: 336px;
   overflow: auto;
 }
 @media (max-width: 1000px) {
-  /* line 175, ../_scss/layout/_page.scss */
+  /* line 179, ../_scss/layout/_page.scss */
   .artist .content {
     width: 60%;
   }
 }
 @media (max-width: 640px) {
-  /* line 175, ../_scss/layout/_page.scss */
+  /* line 179, ../_scss/layout/_page.scss */
   .artist .content {
     width: 100%;
     float: none;
   }
 }
-/* line 190, ../_scss/layout/_page.scss */
+/* line 195, ../_scss/layout/_page.scss */
 .artist .content p:last-child {
   margin-bottom: 0;
 }
-/* line 194, ../_scss/layout/_page.scss */
+/* line 199, ../_scss/layout/_page.scss */
 .artist h1 {
   font-size: 42px;
   font-size: 2.625rem;
@@ -766,34 +773,34 @@ footer .social a {
   margin: 20px 0 0 0;
 }
 @media (max-width: 1000px) {
-  /* line 194, ../_scss/layout/_page.scss */
+  /* line 199, ../_scss/layout/_page.scss */
   .artist h1 {
     font-size: 36px;
     font-size: 2.25rem;
   }
 }
 @media (max-width: 640px) {
-  /* line 194, ../_scss/layout/_page.scss */
+  /* line 199, ../_scss/layout/_page.scss */
   .artist h1 {
     font-size: 28px;
     font-size: 1.75rem;
   }
 }
-/* line 209, ../_scss/layout/_page.scss */
+/* line 214, ../_scss/layout/_page.scss */
 .artist p {
   font-size: 16px;
   font-size: 1rem;
   line-height: 24px;
 }
 @media (max-width: 1000px) {
-  /* line 209, ../_scss/layout/_page.scss */
+  /* line 214, ../_scss/layout/_page.scss */
   .artist p {
     font-size: 14px;
     font-size: 0.875rem;
     line-height: 21px;
   }
 }
-/* line 217, ../_scss/layout/_page.scss */
+/* line 222, ../_scss/layout/_page.scss */
 .artist .contact {
   overflow: hidden;
   *zoom: 1;
@@ -801,13 +808,13 @@ footer .social a {
   width: 55%;
 }
 @media (max-width: 1000px) {
-  /* line 217, ../_scss/layout/_page.scss */
+  /* line 222, ../_scss/layout/_page.scss */
   .artist .contact {
     float: none;
     width: 100%;
   }
 }
-/* line 226, ../_scss/layout/_page.scss */
+/* line 231, ../_scss/layout/_page.scss */
 .artist .contact ul {
   margin: 0 24px 0 0;
   padding: 14px 24px 14px 0;
@@ -815,21 +822,21 @@ footer .social a {
   border-right: 1px solid #ab794a;
 }
 @media (max-width: 360px) {
-  /* line 226, ../_scss/layout/_page.scss */
+  /* line 231, ../_scss/layout/_page.scss */
   .artist .contact ul {
     float: none;
     border-right: none;
   }
 }
-/* line 236, ../_scss/layout/_page.scss */
+/* line 241, ../_scss/layout/_page.scss */
 .artist .contact ul li {
   padding: 0 4px;
 }
-/* line 241, ../_scss/layout/_page.scss */
+/* line 246, ../_scss/layout/_page.scss */
 .artist .contact a {
   color: #131313;
 }
-/* line 246, ../_scss/layout/_page.scss */
+/* line 251, ../_scss/layout/_page.scss */
 .artist .social a {
   opacity: 0.8;
   filter: alpha(opacity=80);
@@ -838,71 +845,71 @@ footer .social a {
   height: 0;
   padding-top: 32px;
 }
-/* line 253, ../_scss/layout/_page.scss */
+/* line 258, ../_scss/layout/_page.scss */
 .artist .social a.facebook {
   background: url(../images/svg/facebook.svg) no-repeat;
 }
-/* line 256, ../_scss/layout/_page.scss */
+/* line 261, ../_scss/layout/_page.scss */
 .artist .social a.instagram {
   background: url(../images/svg/instagram.svg) no-repeat;
 }
-/* line 259, ../_scss/layout/_page.scss */
+/* line 264, ../_scss/layout/_page.scss */
 .artist .social a.twitter {
   background: url(../images/svg/twitter.svg) no-repeat center center;
 }
-/* line 264, ../_scss/layout/_page.scss */
+/* line 269, ../_scss/layout/_page.scss */
 .artist .info {
   font-size: 16px;
   font-size: 1rem;
 }
 @media (max-width: 1000px) {
-  /* line 264, ../_scss/layout/_page.scss */
+  /* line 269, ../_scss/layout/_page.scss */
   .artist .info {
     font-size: 14px;
     font-size: 0.875rem;
   }
 }
 @media (max-width: 640px) {
-  /* line 275, ../_scss/layout/_page.scss */
+  /* line 280, ../_scss/layout/_page.scss */
   .artist .info b:first-child {
     display: block;
   }
 }
 @media (max-width: 360px) {
-  /* line 264, ../_scss/layout/_page.scss */
+  /* line 269, ../_scss/layout/_page.scss */
   .artist .info {
     float: none;
   }
-  /* line 282, ../_scss/layout/_page.scss */
+  /* line 287, ../_scss/layout/_page.scss */
   .artist .info b {
     display: block;
   }
 }
 
-/* line 289, ../_scss/layout/_page.scss */
+/* line 294, ../_scss/layout/_page.scss */
 #aftercare {
   background: url(../images/bg-paper.jpg) center top;
   border-bottom: 20px solid #ab794a;
 }
 @media (max-width: 1200px) {
-  /* line 289, ../_scss/layout/_page.scss */
+  /* line 294, ../_scss/layout/_page.scss */
   #aftercare {
     padding-left: 30px;
     padding-right: 30px;
   }
 }
-/* line 298, ../_scss/layout/_page.scss */
+/* line 303, ../_scss/layout/_page.scss */
 #aftercare .content {
   width: 60%;
 }
 @media (max-width: 1000px) {
-  /* line 298, ../_scss/layout/_page.scss */
+  /* line 303, ../_scss/layout/_page.scss */
   #aftercare .content {
     width: 100%;
     float: none;
   }
 }
-/* line 308, ../_scss/layout/_page.scss */
+/* line 313, ../_scss/layout/_page.scss */
 #aftercare h1 {
   font-size: 60px;
   font-size: 3.75rem;
@@ -911,7 +918,7 @@ footer .social a {
   text-transform: uppercase;
 }
 @media (max-width: 1000px) {
-  /* line 308, ../_scss/layout/_page.scss */
+  /* line 313, ../_scss/layout/_page.scss */
   #aftercare h1 {
     font-size: 42px;
     font-size: 2.625rem;
@@ -919,27 +926,27 @@ footer .social a {
     margin-bottom: 18px;
   }
 }
-/* line 323, ../_scss/layout/_page.scss */
+/* line 328, ../_scss/layout/_page.scss */
 #aftercare h3 {
   text-align: center;
 }
-/* line 327, ../_scss/layout/_page.scss */
+/* line 332, ../_scss/layout/_page.scss */
 #aftercare li {
   margin: 24px 0;
 }
-/* line 329, ../_scss/layout/_page.scss */
+/* line 334, ../_scss/layout/_page.scss */
 #aftercare li b {
   font-size: 19px;
   font-size: 1.1875rem;
 }
-/* line 334, ../_scss/layout/_page.scss */
+/* line 339, ../_scss/layout/_page.scss */
 #aftercare .container {
   overflow: hidden;
   *zoom: 1;
   padding: 40px 0;
 }
 @media (max-width: 1000px) {
-  /* line 339, ../_scss/layout/_page.scss */
+  /* line 344, ../_scss/layout/_page.scss */
   #aftercare img {
     display: none;
   }

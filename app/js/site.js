@@ -21,6 +21,10 @@
 
       // Load Jay's Instagram feed.
       jayFeed.run();
+      daveFeed.run();
+      fiertoFeed.run();
+      tobiasFeed.run();
+      tenSancFeed.run();
 
       // Startup all galleries
       siteGalleries.init();
@@ -82,6 +86,98 @@
     }
   });
 
+  var daveFeed = new Instafeed({
+    get: 'user',
+      userId: 266550284,
+      accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
+      limit: '25',
+      links: 'false',
+      resolution: 'standard_resolution',
+      target: 'dave-gallery',
+      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+
+    filter: function(image) {
+      return image.tags.indexOf('tenthsanctum') >= 0;
+    },
+
+    after: function(){
+      siteGalleries.size('dave');
+      var images = $('#dave-gallery a').fancybox({
+        'overlayOpacity' : '0.9',
+        'overlayColor' : '#131313'
+      });
+    }
+  });
+
+  var fiertoFeed = new Instafeed({
+    get: 'user',
+      userId: 266550284,
+      accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
+      limit: '25',
+      links: 'false',
+      resolution: 'standard_resolution',
+      target: 'fierto-gallery',
+      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+
+    filter: function(image) {
+      return image.tags.indexOf('tenthsanctum') >= 0;
+    },
+
+    after: function(){
+      siteGalleries.size('fierto');
+      var images = $('#fierto-gallery a').fancybox({
+        'overlayOpacity' : '0.9',
+        'overlayColor' : '#131313'
+      });
+    }
+  });
+
+  var tobiasFeed = new Instafeed({
+    get: 'user',
+      userId: 266550284,
+      accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
+      limit: '25',
+      links: 'false',
+      resolution: 'standard_resolution',
+      target: 'tobias-gallery',
+      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+
+    filter: function(image) {
+      return image.tags.indexOf('tenthsanctum') >= 0;
+    },
+
+    after: function(){
+      siteGalleries.size('tobias');
+      var images = $('#tobias-gallery a').fancybox({
+        'overlayOpacity' : '0.9',
+        'overlayColor' : '#131313'
+      });
+    }
+  });
+
+  var tenSancFeed = new Instafeed({
+    get: 'user',
+      userId: 266550284,
+      accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
+      limit: '25',
+      links: 'false',
+      resolution: 'standard_resolution',
+      target: 'ten-sanc-gallery',
+      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+
+    filter: function(image) {
+      return image.tags.indexOf('tenthsanctum') >= 0;
+    },
+
+    after: function(){
+      siteGalleries.size('tenSancGallery');
+      var images = $('#ten-sanc-gallery a').fancybox({
+        'overlayOpacity' : '0.9',
+        'overlayColor' : '#131313'
+      });
+    }
+  });
+
   // loadButton.on('click', function() {
   //   daveFeed.next();
   // });
@@ -117,10 +213,10 @@
       siteGalleries.size();
 
       // Temporary call of galleries until everyone is on instafeed.
-      siteGalleries.tenSancGallery(siteGalleries._maxSlide, siteGalleries._margin);
-      siteGalleries.fiertoGallery(siteGalleries._maxSlide, siteGalleries._margin);
-      siteGalleries.tobiasGallery(siteGalleries._maxSlide, siteGalleries._margin);
-      siteGalleries.daveGallery(siteGalleries._maxSlide, siteGalleries._margin);
+      // siteGalleries.tenSancGallery(siteGalleries._maxSlide, siteGalleries._margin);
+      // siteGalleries.fiertoGallery(siteGalleries._maxSlide, siteGalleries._margin);
+      // siteGalleries.tobiasGallery(siteGalleries._maxSlide, siteGalleries._margin);
+      // siteGalleries.daveGallery(siteGalleries._maxSlide, siteGalleries._margin);
 
       $('.btn-next, .btn-prev').on('click', function(e){
         e.preventDefault();
@@ -168,6 +264,7 @@
           break;
         case 'tenSancGallery':
           // siteGalleries._tenSancGal.destroySlider();
+          console.log("ten");
           siteGalleries.tenSancGallery(siteGalleries._maxSlide, siteGalleries._margin);
           break;
       }
