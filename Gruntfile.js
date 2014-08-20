@@ -95,7 +95,7 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          cssDir: '<%= kollab.dist %>/css',
+          cssDir: '<%= kollab.app %>/css',
           environment: 'production',
           outputStyle: 'compressed',
           force: true
@@ -131,8 +131,10 @@ module.exports = function(grunt) {
       },
       dist: {
         files: [
-          {expand: true, src: ['../images/**'], dest: '_dist/images'},
-          {expand: true, src: ['js/no-concat/modernizr.js'], dest: '_dist/'},
+          { expand: true, cwd: '<%= kollab.app %>/images', src: '**', dest: '<%= kollab.dist %>/images/' },
+          { expand: true, cwd: '<%= kollab.app %>/css', src: '**', dest: '<%= kollab.dist %>/css/' },
+          { expand: true, flatten: true, cwd: '<%= kollab.app %>', src: 'index.html', dest: '<%= kollab.dist %>', filter: 'isFile' },
+          { expand: true, flatten: true, src: '<%= kollab.app %>/js/no-concat/modernizr.js', dest: '<%= kollab.dist %>/js'}
         ]
       }
     },
@@ -145,8 +147,8 @@ module.exports = function(grunt) {
         dest: '<%= kollab.dev %>/js/compiled.js'
       },
       dist: {
-        src: ['js/vendor/*.js','js/*.js'],
-        dest: '_dist/js/compiled.js'
+        src: ['<%= kollab.app %>/js/vendor/*.js','<%= kollab.app %>/js/*.js'],
+        dest: '<%= kollab.dist %>/js/compiled.js'
       }
     },
     uglify: {
@@ -157,7 +159,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '_dist/js/compiled.min.js': '_dist/js/compiled.js'
+          '<%= kollab.dist %>/js/compiled.min.js': '<%= kollab.dist %>/js/compiled.js'
         }
       }
     },
@@ -191,6 +193,6 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'dist',
     'Compiles all of the assets and copies the files to the distribution directory.',
-    ['clean:dist', 'jekyll:dist', 'compass:dist', 'concat:dist', 'uglify:dist', 'copy:dist']
+    ['compass:dist', 'concat:dist', 'copy:dist', 'uglify:dist']
   );
 };
