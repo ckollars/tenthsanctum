@@ -5,44 +5,269 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Tenth Sanctum</title>
+  <title>Tenth Sanctum Tattoo</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <meta property="og:title" content="">
+  <meta property="og:title" content="Tenth Sanctum Tattoo">
   <meta property="og:image" content="">
-  <meta property="og:site_name" content="">
+  <meta property="og:site_name" content="Tenth Sanctum Tattoo">
   <meta property="og:description" content="">
 
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/no-concat/modernizr.js"></script>
+  <script src="/js/modernizr.js" async></script>
 
+  <script type="text/javascript" src="//use.typekit.net/xxa0qlw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-54050407-1', 'auto');
+    ga('send', 'pageview');
+
+      /* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon( [ "/css/icons.data.svg.css", "/css/icons.data.png.css", "/css/icons.fallback.css" ] );
   </script>
+  <noscript><link href="/app/svg/grunticon/icons.fallback.css" rel="stylesheet"></noscript>
+
+  <link rel="stylesheet" href="/css/styles.css">
+
 </head>
 <body>
   <header>
-
+    <nav class="main-nav" role="navigation">
+      <a href="#main-nav" class="icon-mobile-menu">Menu</a>
+      <ul id="main-menu" class="container">
+        <li><a href="#about" title="About the shop">About Us</a></li>
+        <li><a href="#artists" title="Resident artists">Artists</a></li>
+        <li><a href="#aftercare" title="Tattoo aftercare">Aftercare</a></li>
+        <li><a href="#contact" title="Contact the shop">Contact</a></li>
+      </ul>
+    </nav>
   </header>
-  <div id="main">
-    <div class="sidebar">
-      <img class="logo" src="images/logo.jpg" alt="Tenth Sanctum">
-      <p>1010 South 10th St. &bull; Omaha, NE 68108<a class="map" href="https://goo.gl/maps/TAQy8">Map</a></p>
-      <p class="social"><a class="facebook" href="https://www.facebook.com/pages/Tenth-Sanctum-Tattoo/268140513310691">Facebook</a></p>
-    </div>
-    <div class="content">
-      <!-- <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at dolor mauris. Aliquam eget dictum ipsum. In id eros erat. Vestibulum venenatis dui sit amet lacus </h1> -->
-      <!-- <h2>Call for Appointment<br>402-442-1010<h2> -->
-    </div>
-  </div>
-  <footer>
+  <main id="main" role="main">
+    <section id="hero">
+      <h1 class="container"><img src="images/logo.png" alt="Tenth Sanctum logo"></h1>
+      <div class="gallery">
+        <div class="controls">
+          <div class="container">
+            <span class="btn-prev icon-prev-arrow"></span>
+            <span class="btn-next icon-next-arrow"></span>
+          </div>
+        </div>
+        <ul id="ten-sanc-gallery"></ul>
+      </div>
+    </section>
+    <section id="about">
+      <div>
+        <p class="container">We at Tenth Sanctum Tattoo offer a clean and professional atmosphere. If you are interested in receiving work from anyone of our artists feel free to contact them via phone, email, text etc. All of our artists keep their own schedules and all there contact information may be found on the artists page. Thank you for your interest in our shop.</p>
+      </div>
+    </section>
+    <section id="artists">
+      <nav class="artist-nav" role="navigation">
+        <div class="container">
+          <h2>Resident Artists</h2>
+          <ul>
+            <li><a data-slide-index="0" href="#fierto">Fierto</a></li>
+            <li><a data-slide-index="1" href="#tobias">Tobias</a></li>
+            <li><a data-slide-index="2" href="#dave">Dave</a></li>
+            <li><a data-slide-index="3" href="#jay">J</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div id="resident-artists">
+        <article id="fierto" class="artist">
+          <div class="container">
+            <div class="wrapper">
+              <figure><img src="images/fierto.jpg" alt="Fierto"></figure>
+              <h1>Jeremy 'Fierto' Cruz</h1>
+              <div class="content">
+                <p>Hello I'm Jeremy Cruz also known as Fierto. I began tattooing in 2000.  I opened Tenth Sanctum in January 2014. I enjoy doing traditional, neo traditional, illustrative, oriental, and black and grey portrait tattoos.  I fashion myself as a focused tattooist paying close attention to detail. I think it's important to give my clients the best tattoo that I can do so that means at times I have to poke holes in ideas and concepts. This is not to be mean it's just so I can give you the best result. At the end of the day my main goal is to make you happy and at the same time not compromising the integrity of the tattoo as a whole. I enjoy spending time with my family,  watching TV and movies of all kind.  Omaha is my home and I am proud to live here and to be working with my friends.</p>
+              </div>
+            </div>
+            <div class="contact">
+              <ul class="social">
+                <li><a class="icon-instagram" title="Follow on Instagram" href="http://instagram.com/fierto402">Instagram</a></li>
+              </ul>
+              <p class="info">
+                <b>In the shop:</b> Monday thru Wednesday, Friday &amp; Saturday from 12pm - 8pm<br>
+                <b>Call:</b> 402.714.0076&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Email:</b> <a href="mailto:fierto@outlook.com" title="Email Fierto">fierto@outlook.com</a></p>
+            </div>
+          </div>
+          <div class="gallery">
+            <div class="controls">
+              <div class="container">
+                <a href="" class="btn-prev icon-prev-arrow"></a>
+                <a href="" class="btn-next icon-next-arrow"></a>
+              </div>
+            </div>
+            <ul id="fierto-gallery" class="page"></ul>
+          </div>
+        </article>
+        <article id="tobias" class="artist">
+          <div class="container">
+            <div class="wrapper">
+              <figure><img src="images/tobias-caballero.jpg" alt="Tobias Caballero"></figure>
+              <h1>Tobias Caballero</h1>
+              <div class="content">
+                <p>I have been tattooing since 2006. I can honestly say that I have loved every bit of it. From the culture of the craft to the individual  experiences with the client.  I have been an artist all my life. I practice all mediums and styles. I have a bachelors degree in Illustration from Rocky Mountain College of Art and Design. I enjoy all styles of tattooing excelling at portraits ,traditional Japanese ,and illustrative tattoos.</p>
+                <p>Outside of tattooing I also have my own line of apparel with Curbside clothing and illustrate for several different comic books.</p>
+                <p>If you're interested in getting work from me, I prefer to handle all my appointments in person. I pride myself for being a friendly laid back individual.</p>
+              </div>
+            </div>
+            <div class="contact">
+              <ul class="social">
+                <li><a class="icon-instagram" title="Follow on Instagram" href="http:://instagram.com/tobias10thtattoos">Instagram</a></li>
+              </ul>
+              <p class="info">
+                <b>In the shop:</b> Monday thru Wednesday, Friday &amp; Saturday 12pm - 8pm<br>
+                <b>Text:</b> 402.813.7299&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Email:</b> <a href="mailto:caballero424@msn.com">caballero424@msn.com</a></p>
+            </div>
+          </div>
+          <div class="gallery">
+            <div class="controls">
+              <div class="container">
+                <a href="" class="btn-prev icon-prev-arrow"></a>
+                <a href="" class="btn-next icon-next-arrow"></a>
+              </div>
+            </div>
+            <ul id="tobias-gallery" class="page"></ul>
+          </div>
+        </article>
+        <article id="dave" class="artist">
+          <div class="container">
+            <div class="wrapper">
+              <figure><img src="images/dave-koenig.jpg" alt="Dave Koenig"></figure>
+              <h1>Dave Koenig</h1>
+              <div class="content">
+                <p>Dave Koenig is a prolific painter and tattooist currently living and working in Omaha, Nebraska. His art has been exhibited at tattoo conventions, festivals and art galleries throughout the world including Into the Woods Fine Art Gallery in Fort Lauderdale, Florida, as well as The New BLK, In Common and Bemis Underground in Omaha, NE.  </p>
+                <p>After attending five years of fine arts at The University of Nebraska Omaha where he also studied Anthropology and Native American Studies, Dave then proceeded to teach art at Pact Center School in Council Bluffs, Iowa for a year followed by another year of teaching art at The St. Augustine School , located on the Winnebago Reservation. It was then that he began pursuing his career as a tattoo artist.  </p>
+                <p>Dave has been tattooing, both locally and internationally, since 2001. His home base is currently at Tenth Sanctum Tattoos in Omaha, Nebraska. Dave apprenticed under Devin Ferguson at Liquid Courage Tattoos. Other professional studios Dave has worked at include Sailor’s Grave, Iron Brush Tattoo, Studio XIII, True Love, Cast Iron Tattoo, Into the Woods, Off the Map and Arctic Tattoo in Tromso, Norway.  </p>
+                <p>Working with a wide range of mediums from Ink and water color to large scale acrylic, Dave maintains a controlled looseness of line work and a delicate treatment of color. Although heavily influenced by Japan’s historic culture and use of patterns, his work also reflects the imagery and antiquity of both Traditional Americana and Art Nouveau.</p>
+                <p>Dave has worked as curator for several art shows featuring fellow tattoo artists. His imagery and art have appeared on skateboards and t-shirts for several companies as well as several album covers, concert posters and mixed martial arts event posters. He is now expanding his work in to new territories of commercial art, painting custom guitars for Soapbox Guitars (of which he is co-owner) to illustrating a variety of liquor labels.  </p>
+                <p>“As for the future, I intend to roll with whatever life delivers, push forward and take my art beyond limits.” </p>
+                <p>Client List: Curbside Clothing, Borgata Brewery, Soapbox Guitars</p>
+              </div>
+            </div>
+            <div class="contact">
+              <ul class="social">
+                <li><a class="icon-instagram" title="Follow on Instagram" href="http://instagram.com/davekoenigart">Instagram</a></li>
+              </ul>
+              <p class="info">
+                <b>In the shop:</b> Tuesday thru Saturday from 12pm - 8pm<br>
+                <b>Call:</b> 954.465.4742&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Email:</b> <a href="mailto:dkoenigart@gmail.com" title="Email Dave">dkoenigart@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="gallery">
+            <div class="controls">
+              <div class="container">
+                <a href="" class="btn-prev icon-prev-arrow"></a>
+                <a href="" class="btn-next icon-next-arrow"></a>
+              </div>
+            </div>
+            <ul id="dave-gallery" class="page"></ul>
+          </div>
+        </article>
+        <article id="jay" class="artist">
+          <div class="container">
+            <div class="wrapper">
+              <figure><img src="images/jay-barnett.jpg" alt="Jay Barnett"></figure>
+              <h1>J Barnett</h1>
+              <div class="content">
+                <p>J Barnett has always worked in art related fields.  After Attending the Creative center and receiving a Associates degree in illustration and visual arts, he worked in the graphic design field for 7 years. It was not until receiving his first tattoo by Jeremy Cruz, that he considered tattooing as a career option.  After careful research J began his 2 year apprenticeship under Devin Fergusen in 2009.</p>
+                <p>Along with tattooing J also paints using a wide range of mediums. From large scale watercolors to Motorcycle tanks and helmets. His artwork has displayed at several art openings such as the New BLK, the Sweatshop, and several First Friday art events in which he also curated. J also has his own line of apparel at Curbside clothing/ curbsideclothing.com.</p>
+                <p>Open to all styles of tattooing and art, J feels he not only prefers, but excels at Oriental, Polynesian and American traditional.</p>
+              </div>
+            </div>
+            <div class="contact">
+              <ul class="social">
+                <li><a class="icon-instagram" title="Follow on Instagram" href="http://instagram.com/1010jbarnett">Instagram</a></li>
+                <li><a class="icon-facebook" title="Follow on Facebook" href="https://www.facebook.com/1010.j.barnett">Facebook</a></li>
+              </ul>
+              <p class="info">
+                <b>In the shop:</b> Monday, Wednesday thru Saturday from 12pm - 8pm<br>
+                <b>Call:</b> 402.679.1030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Email:</b> <a href="mailto:1010jbarnett@gmail.com" title="Email Jay">1010jbarnett@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="gallery">
+            <div class="controls">
+              <div class="container">
+                <a href="" class="btn-prev icon-prev-arrow"></a>
+                <a href="" class="btn-next icon-next-arrow"></a>
+              </div>
+            </div>
+            <ul id="jay-gallery" class="page"></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section id="aftercare">
+      <div class="container">
+        <div class="content">
+          <h1>Tattoo Aftercare</h1>
+          <p>The overall healing of one's tattoo depends on many factors. What works for some may not be as successful for others. May these care instructions and tips serve as a guidelines to insure that your tattoo heals correctly and with out issue. Some aftercare may differ amongst artists. It is always our recommendation to refer to the artist or studio that has done your tattoo with any and all questions and/or concerns regarding your tattoo.</p>
+          <h2>Basic Tattoo Care</h2>
 
+          <p>After the completion of your tattoo your artist will apply a layer of petroleum jelly and bandage. This will act as a barrier and will keep your tattoo from airborne bacteria which can penetrate through broken skin.</p>
+
+          <h3>Always care for your tattoo with clean hands!</h3>
+
+          <p>We generally recommend only leaving the bandage on 1 to 4 hours. When taking off bandage to clean there is a chance the bandage might stick to the fresh tatoo. DO NOT RIP OFF. Merely run warm water over the bandage till it falls off on its own.</p>
+
+          <p>Using mild antibacterial soap, preferabley one with no heavy dyes and/ or scents, lather up and with the tips of your fingers wash remaining petroleum jelly off. Be sure not to use wash rags loofahs or anything else abrasive besides fingertips or hands to clean tattoo. Doing so may upset the tattoo causing unnecessary pain and could affect the healing process as well. Once clean pat dry with a clean wash rag or paper towel.</p>
+
+          <p>After patting dry tattoo lay a hot rag over it for ten seconds then follow up with a cold rag for ten seconds. <em>Note: Make sure rag is not too hot to burn oneself but get it uncomfortably hot and have the other rag soaking in a clean container of ice water. </em>Most important is to be sure rags are clean!</p>
+
+          <p>In doing this process it will open up the pores allowing for teh pigment to soak in the skin and then it seals them shut. In our experience this tends to heal the tattoo better and quicker and with less scabbing.</p>
+
+          <p>After the hot and cold rag let tattoo air dry for 30 minutes.</p>
+
+          <p>Once tattoo is dry you may apply a light layer of fragrance/dye free lotion and continue to do so 3 to 4 times a day for about 3 to 4 weeks.</p>
+
+          <p>Some artists may direct you to use an ointment such as Aquaphor, Vitamin A&amp;D ointment, etc. These can be used as well. It is our recommendation to only use such ointments, balms, salves, etc. for maximum of 3 days in very light coats. Then proceed to use a fragrance/dye free loation for the remaining healing time of the tattoo.</p>
+
+          <h3>Wheather lotion, ointment, balm, etc. be sure to use light coats to prevent suffocating the tattoo. In order for a tatto to heal properly it needs to be able to breathe.</h3>
+
+          <p>There is always a chance some individuals may develop reactions to the loation, ointment, balm, etc. that they are using. The development of little bumps or pimples in or around the tattoo area is a result of this. Overuse of lotions, ointments, balms, etc. can also produce the same result. This problem is not serious in nature; simply switch to an laternative lotion, ointment, balm, et. and/or consult your artist or studio for advice and/or recommendations.</p>
+
+          <p>It is recommended NOT to use Vaseline or Neosporin as healing agent for tattoo.
+          Tattoos will generally take 4 to 6 weeks to heal if taken care of properly. Scabs and flakes are a natural part of the healing process of a tattoo. In order for your tattoo to heal and look it's best to be sure not to pick or scratch at it. Doing so may prematurely rip out still settling in pigment and in turn may leave an empty spot or scar in it's place.</p>
+
+          <h2>Helpful Hints</h2>
+          <ul>
+            <li><b>Be sure to wear looser clothing.</b><br>
+              Clothing rubbing against a fresh and new tattoo may irritate it causing discomfort and also can snag scabs or flakes when removing and putting on.</li>
+            <li><b>Avoid working out.</b><br>
+              Take a break for a week or so. Gym equipment can harbor many bacteria that can infect your tattoo. The stress and sweating on a new tattoo can also irritate it as well.</li>
+            <li><b>Stay out of the sun.</b><br>
+              Exposing your tattoo to direct sunlight while it's healing is one of the easiest ways to insure it will fade. Staying out of the sun and tanning beds till the tattoo is fully healed is recommended. Once the tattoo is healed you can use a high SPF sunscreen to protect your tattoo for the remainder of it's life. <strong>DO NOT USE SUNSCREEN TILL FULLY HEALED.</strong> This may irritate and upset the healing process.</li>
+            <li><b>Do not submerge in watter.</b><br>
+              Taking showers are fine. While the tattoo is healing you will need to stay out of pools, lakes, jacuzzis, etc. Soaking your tattoo may cause the pigment be drawn from your skin as well as mothering the tattoo resulting in heavier scabbing. Also pools, hot tubes and other bodies of water contain  chemicals, bacteria, and other pathogens which could result in infection. We at</li>
+          </ul>
+
+          <p>Tenth Sanctum Tattoo is commited to our client's satisfaction. Once again if you have any questions and/or concerns be sure to stop into the studio or drop one of our artists a call and we will be happy to address.</p>
+        </div>
+        <img src="images/front-train-logo.png" alt="Tenth Sanctum train front logo">
+      </div>
+    </section>
+  </main>
+  <footer id="contact">
+    <div class="container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1499.8537052439833!2d-95.92933219999995!3d41.24993090000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87938fa7ebb96d49%3A0xc88438a71b65d128!2s1010+S+10th+St!5e0!3m2!1sen!2sus!4v1396283026410" width="700" height="200" frameborder="0" ></iframe>
+      <address>
+        <h4>Tenth Sanctum</h4>
+        <p>1010 South 10th Street<br>
+        Omaha, NE 68108</p>
+      </address>
+      <div class="social">
+        <a class="icon-facebook-gold" href="https://www.facebook.com/pages/Tenth-Sanctum-Tattoo/268140513310691">Facebook</a>
+        <a class="icon-instagram-gold" href="http://instagram.com/tenthsanctum">Instagram</a>
+      </div>
+      <p class="copyright"></p>
+    </div>
   </footer>
 
   <div id="fb-root"></div>
@@ -54,8 +279,6 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
   </script>
-  <script type="text/javascript" src="//use.typekit.net/xxa0qlw.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <script type="text/javascript" src="js/compiled.js"></script>
+  <script type="text/javascript" src="/js/compiled.min.js"></script>
 </body>
 </html>
