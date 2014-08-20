@@ -21,8 +21,8 @@
 
       // Load Jay's Instagram feed.
       jayFeed.run();
-      daveFeed.run();
-      fiertoFeed.run();
+      // daveFeed.run();
+      // fiertoFeed.run();
       tobiasFeed.run();
       tenSancFeed.run();
 
@@ -62,7 +62,7 @@
 
 
   };
-  // var loadButton = $('#dave .gallery');
+
   var jayFeed = new Instafeed({
     get: 'user',
       userId: 266550284,
@@ -101,7 +101,7 @@
     },
 
     after: function(){
-      siteGalleries.size('dave');
+      siteGalleries.daveGallery();
       var images = $('#dave-gallery a').fancybox({
         'overlayOpacity' : '0.9',
         'overlayColor' : '#131313'
@@ -124,7 +124,7 @@
     },
 
     after: function(){
-      siteGalleries.size('fierto');
+      siteGalleries.fiertoGallery();
       var images = $('#fierto-gallery a').fancybox({
         'overlayOpacity' : '0.9',
         'overlayColor' : '#131313'
@@ -134,8 +134,8 @@
 
   var tobiasFeed = new Instafeed({
     get: 'user',
-      userId: 266550284,
-      accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
+      userId: 25697171,
+      accessToken: '25697171.467ede5.1d5156539dc4433081ef6246807084fe',
       limit: '25',
       links: 'false',
       resolution: 'standard_resolution',
@@ -147,6 +147,7 @@
     },
 
     after: function(){
+      // siteGalleries.tobiasGallery();
       siteGalleries.size('tobias');
       var images = $('#tobias-gallery a').fancybox({
         'overlayOpacity' : '0.9',
@@ -157,19 +158,20 @@
 
   var tenSancFeed = new Instafeed({
     get: 'user',
-      userId: 266550284,
-      accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
-      limit: '25',
+      userId: 905159076,
+      accessToken: '905159076.467ede5.96f5f0f35c8d41f0abae6b77a9a6ec30',
+      limit: '50',
       links: 'false',
       resolution: 'standard_resolution',
       target: 'ten-sanc-gallery',
       template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    filter: function(image) {
-      return image.tags.indexOf('tenthsanctum') >= 0;
-    },
+    // filter: function(image) {
+    //   return image.tags.indexOf('tenthsanctum') >= 0;
+    // },
 
     after: function(){
+      // siteGalleries.tenSancGallery();
       siteGalleries.size('tenSancGallery');
       var images = $('#ten-sanc-gallery a').fancybox({
         'overlayOpacity' : '0.9',
@@ -177,10 +179,6 @@
       });
     }
   });
-
-  // loadButton.on('click', function() {
-  //   daveFeed.next();
-  // });
 
   var smoothScroll = {
 
@@ -264,7 +262,7 @@
           break;
         case 'tenSancGallery':
           // siteGalleries._tenSancGal.destroySlider();
-          console.log("ten");
+          // console.log("ten");
           siteGalleries.tenSancGallery(siteGalleries._maxSlide, siteGalleries._margin);
           break;
       }
@@ -282,7 +280,7 @@
         prevSelector: '#hero .btn-prev',
 
         onSliderLoad: function(){
-          $('#ten-sanc-gallery').css('opacity', '1');
+          // $('#ten-sanc-gallery').css('opacity', '1');
         }
       });
 
