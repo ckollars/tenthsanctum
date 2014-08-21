@@ -3050,10 +3050,9 @@ jQuery.extend( jQuery.easing,
       // Start smoth scroll
       smoothScroll.init();
 
-      // Load Jay's Instagram feed.
       jayFeed.run();
-      // daveFeed.run();
-      // fiertoFeed.run();
+      daveFeed.run();
+      fiertoFeed.run();
       tobiasFeed.run();
       tenSancFeed.run();
 
@@ -3119,20 +3118,20 @@ jQuery.extend( jQuery.easing,
 
   var daveFeed = new Instafeed({
     get: 'user',
-      userId: 266550284,
-      accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
+      userId: 215205703,
+      accessToken: '215205703.467ede5.43bb77ac825147f0a8e26e21da1b6dc2',
       limit: '25',
       links: 'false',
       resolution: 'standard_resolution',
       target: 'dave-gallery',
       template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    filter: function(image) {
-      return image.tags.indexOf('tenthsanctum') >= 0;
-    },
+    // filter: function(image) {
+    //   return image.tags.indexOf('tenthsanctum') >= 0;
+    // },
 
     after: function(){
-      siteGalleries.daveGallery();
+      siteGalleries.size('dave');
       var images = $('#dave-gallery a').fancybox({
         'overlayOpacity' : '0.9',
         'overlayColor' : '#131313'
@@ -3142,20 +3141,20 @@ jQuery.extend( jQuery.easing,
 
   var fiertoFeed = new Instafeed({
     get: 'user',
-      userId: 266550284,
-      accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
+      userId: 249147633,
+      accessToken: '249147633.467ede5.0ed6fc66849b4199b22f20ea2cc4e390',
       limit: '25',
       links: 'false',
       resolution: 'standard_resolution',
       target: 'fierto-gallery',
       template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    filter: function(image) {
-      return image.tags.indexOf('tenthsanctum') >= 0;
-    },
+    // filter: function(image) {
+    //   return image.tags.indexOf('tenthsanctum') >= 0;
+    // },
 
     after: function(){
-      siteGalleries.fiertoGallery();
+      siteGalleries.size('fierto');
       var images = $('#fierto-gallery a').fancybox({
         'overlayOpacity' : '0.9',
         'overlayColor' : '#131313'
@@ -3197,10 +3196,6 @@ jQuery.extend( jQuery.easing,
       target: 'ten-sanc-gallery',
       template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    // filter: function(image) {
-    //   return image.tags.indexOf('tenthsanctum') >= 0;
-    // },
-
     after: function(){
       // siteGalleries.tenSancGallery();
       siteGalleries.size('tenSancGallery');
@@ -3240,12 +3235,6 @@ jQuery.extend( jQuery.easing,
 
     init: function(){
       siteGalleries.size();
-
-      // Temporary call of galleries until everyone is on instafeed.
-      // siteGalleries.tenSancGallery(siteGalleries._maxSlide, siteGalleries._margin);
-      // siteGalleries.fiertoGallery(siteGalleries._maxSlide, siteGalleries._margin);
-      // siteGalleries.tobiasGallery(siteGalleries._maxSlide, siteGalleries._margin);
-      // siteGalleries.daveGallery(siteGalleries._maxSlide, siteGalleries._margin);
 
       $('.btn-next, .btn-prev').on('click', function(e){
         e.preventDefault();
