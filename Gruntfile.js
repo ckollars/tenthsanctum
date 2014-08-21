@@ -41,7 +41,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['<%= kollab.app %>/js/*.js','<%= kollab.app %>/js/vendor/*.js'],
-        tasks: ['concat:server', 'copy:scripts'],
+        tasks: ['concat:server', 'copy:scripts', 'uglify:server'],
         options: {
           livereload: true,
         }
@@ -124,6 +124,7 @@ module.exports = function(grunt) {
       server: {
         files: [
           { expand: true, cwd: '<%= kollab.app %>/images', src: '**', dest: '<%= kollab.dev %>/images/' },
+          { expand: true, cwd: '<%= kollab.app %>', src: '*.ico', dest: '<%= kollab.dev %>/' },
           { expand: true, cwd: '<%= kollab.app %>/css', src: '**', dest: '<%= kollab.dev %>/css/' },
           { expand: true, flatten: true, cwd: '<%= kollab.app %>', src: 'index.html', dest: '<%= kollab.dev %>', filter: 'isFile' },
           { expand: true, flatten: true, src: '<%= kollab.app %>/js/no-concat/modernizr.js', dest: '<%= kollab.dev %>/js'}
@@ -132,6 +133,7 @@ module.exports = function(grunt) {
       dist: {
         files: [
           { expand: true, cwd: '<%= kollab.app %>/images', src: '**', dest: '<%= kollab.dist %>/images/' },
+          { expand: true, cwd: '<%= kollab.app %>', src: '*.ico', dest: '<%= kollab.dist %>/' },
           { expand: true, cwd: '<%= kollab.app %>/css', src: '**', dest: '<%= kollab.dist %>/css/' },
           { expand: true, flatten: true, cwd: '<%= kollab.app %>', src: 'index.html', dest: '<%= kollab.dist %>', filter: 'isFile' },
           { expand: true, flatten: true, src: '<%= kollab.app %>/js/no-concat/modernizr.js', dest: '<%= kollab.dist %>/js'}

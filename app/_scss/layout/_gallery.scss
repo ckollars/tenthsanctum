@@ -22,18 +22,13 @@
   min-height: 232px;
   ul{
     @include clearfix;
-    // @extend %background-gold;
     padding: 0;
     margin: 0;
     list-style: none;
     li{
       @extend %pull-left;
-      // margin-right: 50px;
       border-radius: 4px;
       border: 2px solid rgba($white, 0.2);
-      // &:last-child{
-      //   margin-right: 0;
-      // }
     }
   }
   img{
@@ -44,7 +39,6 @@
 }
 
 .controls{
-  // @extend %background-gray;
   width: 100%;
   margin: 0 auto;
   position: absolute;
@@ -65,42 +59,16 @@
   width: 50px;
   height: 0;
   padding-top: 50px;
-
-  // @include breakpoint("max-width: 480px"){
-  //   width: 30px;
-  //   padding-top: 30px;
-  // }
-
 }
 .btn-prev a{
   @extend %pull-left;
   background-color: #a07a22;
   background-position: 13px center;
-
-  // @include breakpoint(large){
-  //   background-size: 40%;
-  //   background-position: 8px center;
-  // }
 }
 .btn-next a{
   @extend %pull-right;
   background-color: #a07a22;
   background-position: 17px center;
-
-  // @include breakpoint(large){
-  //   background-size: 40%;
-  //   background-position: 10px center;
-  // }
 }
 
-#ten-sanc-gallery, #jay-gallery, #tobias-gallery, #fierto-gallery, #dave-gallery{
-  // @include opacity(0);
-  // width: 1715%;
-}
 
-// Temp gallery hide until
-#fierto .gallery,
-#dave .gallery {
-  // display: none;
-  min-height: 10px;
-}
