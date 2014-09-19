@@ -33,7 +33,8 @@
         infiniteLoop: false,
         adaptiveHeight: true,
         pager: false,
-        controls: false
+        controls: false,
+        touchEnabled: false
       });
 
       $('.artist-nav a').on('click', function(e){
@@ -46,10 +47,27 @@
         $('body').toggleClass('show-mobile-menu');
       });
 
-      $( window ).on( 'orientationchange', function( event ) {
-        console.log( "This device is in " + event.orientation + " mode!" );
+      window.addEventListener('orientationchange', function(event) {
+        sanc._width = $(window).width();
+        sanc._height = $(window).height();
+
+        // console.log(siteGalleries._maxSlide + ' :: ' + siteGalleries._margin);
+
+        siteGalleries._jayGal.destroySlider();
+        siteGalleries.size('jay');
+
+        siteGalleries._tenSancGal.destroySlider();
         siteGalleries.size('tenSancGallery');
-      });
+
+        siteGalleries._daveGal.destroySlider();
+        siteGalleries.size('dave');
+
+        siteGalleries._fiertoGal.destroySlider();
+        siteGalleries.size('fierto');
+
+        siteGalleries._tobiasGal.destroySlider();
+        siteGalleries.size('tobias');
+      }, false);
 
     },
 
@@ -58,7 +76,6 @@
         console.log(data);
       }
     }
-
 
   };
 
@@ -166,7 +183,6 @@
       template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
     after: function(){
-      // siteGalleries.tenSancGallery();
       siteGalleries.size('tenSancGallery');
       var images = $('#ten-sanc-gallery a').fancybox({
         'overlayOpacity' : '0.9',
@@ -201,6 +217,9 @@
     _margin: null,
     _tenSancGal: null,
     _jayGal: null,
+    _fiertoGal: null,
+    _tobiasGal: null,
+    _daveGal: null,
 
     init: function(){
       siteGalleries.size();
@@ -250,8 +269,6 @@
           siteGalleries.tobiasGallery(siteGalleries._maxSlide, siteGalleries._margin);
           break;
         case 'tenSancGallery':
-          // siteGalleries._tenSancGal.destroySlider();
-          // console.log("ten");
           siteGalleries.tenSancGallery(siteGalleries._maxSlide, siteGalleries._margin);
           break;
       }
@@ -272,11 +289,10 @@
           // $('#ten-sanc-gallery').css('opacity', '1');
         }
       });
-
     },
 
     fiertoGallery: function(maxSlideQty, margin){
-      $('#fierto-gallery').bxSlider({
+      siteGalleries._fiertoGal = $('#fierto-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
         maxSlides: maxSlideQty,
@@ -294,7 +310,7 @@
     },
 
     tobiasGallery: function(maxSlideQty, margin){
-      $('#tobias-gallery').bxSlider({
+      siteGalleries._tobiasGal = $('#tobias-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
         maxSlides: maxSlideQty,
@@ -312,7 +328,7 @@
     },
 
     daveGallery: function(maxSlideQty, margin){
-      $('#dave-gallery').bxSlider({
+      siteGalleries._daveGal = $('#dave-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
         maxSlides: maxSlideQty,
@@ -330,7 +346,7 @@
     },
 
     jayGallery: function(maxSlideQty, margin){
-      $('#jay-gallery').bxSlider({
+      siteGalleries._jayGal = $('#jay-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
         maxSlides: maxSlideQty,
