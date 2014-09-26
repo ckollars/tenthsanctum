@@ -112,9 +112,9 @@
       target: 'dave-gallery',
       template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    // filter: function(image) {
-    //   return image.tags.indexOf('tenthsanctum') >= 0;
-    // },
+    filter: function(image) {
+      return image.tags.indexOf('tenthsanctum') >= 0;
+    },
 
     after: function(){
       siteGalleries.size('dave');
