@@ -3064,7 +3064,8 @@ jQuery.extend( jQuery.easing,
         infiniteLoop: false,
         adaptiveHeight: true,
         pager: false,
-        controls: false
+        controls: false,
+        touchEnabled: false
       });
 
       $('.artist-nav a').on('click', function(e){
@@ -3077,10 +3078,27 @@ jQuery.extend( jQuery.easing,
         $('body').toggleClass('show-mobile-menu');
       });
 
-      $( window ).on( 'orientationchange', function( event ) {
-        console.log( "This device is in " + event.orientation + " mode!" );
+      window.addEventListener('orientationchange', function(event) {
+        sanc._width = $(window).width();
+        sanc._height = $(window).height();
+
+        // console.log(siteGalleries._maxSlide + ' :: ' + siteGalleries._margin);
+
+        siteGalleries._jayGal.destroySlider();
+        siteGalleries.size('jay');
+
+        siteGalleries._tenSancGal.destroySlider();
         siteGalleries.size('tenSancGallery');
-      });
+
+        siteGalleries._daveGal.destroySlider();
+        siteGalleries.size('dave');
+
+        siteGalleries._fiertoGal.destroySlider();
+        siteGalleries.size('fierto');
+
+        siteGalleries._tobiasGal.destroySlider();
+        siteGalleries.size('tobias');
+      }, false);
 
     },
 
@@ -3089,7 +3107,6 @@ jQuery.extend( jQuery.easing,
         console.log(data);
       }
     }
-
 
   };
 
@@ -3126,9 +3143,9 @@ jQuery.extend( jQuery.easing,
       target: 'dave-gallery',
       template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    // filter: function(image) {
-    //   return image.tags.indexOf('tenthsanctum') >= 0;
-    // },
+    filter: function(image) {
+      return image.tags.indexOf('tenthsanctum') >= 0;
+    },
 
     after: function(){
       siteGalleries.size('dave');
@@ -3197,7 +3214,6 @@ jQuery.extend( jQuery.easing,
       template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
     after: function(){
-      // siteGalleries.tenSancGallery();
       siteGalleries.size('tenSancGallery');
       var images = $('#ten-sanc-gallery a').fancybox({
         'overlayOpacity' : '0.9',
@@ -3232,6 +3248,9 @@ jQuery.extend( jQuery.easing,
     _margin: null,
     _tenSancGal: null,
     _jayGal: null,
+    _fiertoGal: null,
+    _tobiasGal: null,
+    _daveGal: null,
 
     init: function(){
       siteGalleries.size();
@@ -3281,8 +3300,6 @@ jQuery.extend( jQuery.easing,
           siteGalleries.tobiasGallery(siteGalleries._maxSlide, siteGalleries._margin);
           break;
         case 'tenSancGallery':
-          // siteGalleries._tenSancGal.destroySlider();
-          // console.log("ten");
           siteGalleries.tenSancGallery(siteGalleries._maxSlide, siteGalleries._margin);
           break;
       }
@@ -3303,11 +3320,10 @@ jQuery.extend( jQuery.easing,
           // $('#ten-sanc-gallery').css('opacity', '1');
         }
       });
-
     },
 
     fiertoGallery: function(maxSlideQty, margin){
-      $('#fierto-gallery').bxSlider({
+      siteGalleries._fiertoGal = $('#fierto-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
         maxSlides: maxSlideQty,
@@ -3325,7 +3341,7 @@ jQuery.extend( jQuery.easing,
     },
 
     tobiasGallery: function(maxSlideQty, margin){
-      $('#tobias-gallery').bxSlider({
+      siteGalleries._tobiasGal = $('#tobias-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
         maxSlides: maxSlideQty,
@@ -3343,7 +3359,7 @@ jQuery.extend( jQuery.easing,
     },
 
     daveGallery: function(maxSlideQty, margin){
-      $('#dave-gallery').bxSlider({
+      siteGalleries._daveGal = $('#dave-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
         maxSlides: maxSlideQty,
@@ -3361,7 +3377,7 @@ jQuery.extend( jQuery.easing,
     },
 
     jayGallery: function(maxSlideQty, margin){
-      $('#jay-gallery').bxSlider({
+      siteGalleries._jayGal = $('#jay-gallery').bxSlider({
         infiniteLoop: false,
         minSlides: 1,
         maxSlides: maxSlideQty,
