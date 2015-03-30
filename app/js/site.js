@@ -23,6 +23,7 @@
       daveFeed.run();
       fiertoFeed.run();
       tobiasFeed.run();
+      katieFeed.run();
       tenSancFeed.run();
 
       // Startup all galleries
@@ -67,6 +68,9 @@
 
         siteGalleries._tobiasGal.destroySlider();
         siteGalleries.size('tobias');
+
+        siteGalleries._katieGal.destroySlider();
+        siteGalleries.size('katie');
       }, false);
 
     },
@@ -163,9 +167,31 @@
     },
 
     after: function(){
-      // siteGalleries.tobiasGallery();
       siteGalleries.size('tobias');
       var images = $('#tobias-gallery a').fancybox({
+        'overlayOpacity' : '0.9',
+        'overlayColor' : '#131313'
+      });
+    }
+  });
+
+  var katieFeed = new Instafeed({
+    get: 'user',
+      userId: 54987330,
+      accessToken: '54987330.467ede5.ad81a2fc998748818832e4e35fe73976',
+      limit: '50',
+      links: 'false',
+      resolution: 'standard_resolution',
+      target: 'katie-gallery',
+      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+
+    filter: function(image) {
+      return image.tags.indexOf('tenthsanctum') >= 0;
+    },
+
+    after: function(){
+      siteGalleries.size('katie');
+      var images = $('#katie-gallery a').fancybox({
         'overlayOpacity' : '0.9',
         'overlayColor' : '#131313'
       });
@@ -268,6 +294,9 @@
         case 'tobias':
           siteGalleries.tobiasGallery(siteGalleries._maxSlide, siteGalleries._margin);
           break;
+        case 'katie':
+          siteGalleries.katieGallery(siteGalleries._maxSlide, siteGalleries._margin);
+          break;
         case 'tenSancGallery':
           siteGalleries.tenSancGallery(siteGalleries._maxSlide, siteGalleries._margin);
           break;
@@ -359,6 +388,23 @@
         onSliderLoad: function(){
           $('#jay-gallery li:nth-child(5)').css('margin', '0');
           $('#jay-gallery').css('opacity', '1');
+        }
+      });
+    },
+    katieGallery: function(maxSlideQty, margin){
+      siteGalleries._jayGal = $('#katie-gallery').bxSlider({
+        infiniteLoop: false,
+        minSlides: 1,
+        maxSlides: maxSlideQty,
+        slideWidth: 172,
+        slideMargin: margin,
+        pager: false,
+        nextSelector: '#katie .btn-next',
+        prevSelector: '#katie .btn-prev',
+
+        onSliderLoad: function(){
+          $('#katie-gallery li:nth-child(5)').css('margin', '0');
+          $('#katie-gallery').css('opacity', '1');
         }
       });
     },
