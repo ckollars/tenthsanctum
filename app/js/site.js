@@ -87,7 +87,7 @@
     get: 'user',
       userId: 266550284,
       accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
-      limit: '50',
+      limit: '75',
       links: 'false',
       resolution: 'standard_resolution',
       target: 'jay-gallery',
@@ -110,7 +110,7 @@
     get: 'user',
       userId: 215205703,
       accessToken: '215205703.467ede5.43bb77ac825147f0a8e26e21da1b6dc2',
-      limit: '50',
+      limit: '75',
       links: 'false',
       resolution: 'standard_resolution',
       target: 'dave-gallery',
@@ -133,15 +133,15 @@
     get: 'user',
       userId: 249147633,
       accessToken: '249147633.467ede5.0ed6fc66849b4199b22f20ea2cc4e390',
-      limit: '50',
+      limit: '75',
       links: 'false',
       resolution: 'standard_resolution',
       target: 'fierto-gallery',
       template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    // filter: function(image) {
-    //   return image.tags.indexOf('tenthsanctum') >= 0;
-    // },
+    filter: function(image) {
+      return image.tags.indexOf('tenthsanctum') >= 0;
+    },
 
     after: function(){
       siteGalleries.size('fierto');
@@ -156,7 +156,7 @@
     get: 'user',
       userId: 25697171,
       accessToken: '25697171.467ede5.1d5156539dc4433081ef6246807084fe',
-      limit: '50',
+      limit: '75',
       links: 'false',
       resolution: 'standard_resolution',
       target: 'tobias-gallery',
