@@ -2792,145 +2792,145 @@ jQuery.extend( jQuery.easing,
 
   };
 
-  var jayFeed = new Instafeed({
-    get: 'user',
-      userId: 266550284,
-      // accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
-      clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
-      limit: '75',
-      links: 'false',
-      resolution: 'standard_resolution',
-      target: 'jay-gallery',
-      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+  // var jayFeed = new Instafeed({
+  //   get: 'user',
+  //     userId: 266550284,
+  //     // accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
+  //     clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
+  //     limit: '75',
+  //     links: 'false',
+  //     resolution: 'standard_resolution',
+  //     target: 'jay-gallery',
+  //     template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    filter: function(image) {
-      return image.tags.indexOf('tenthsanctum') >= 0;
-    },
+  //   filter: function(image) {
+  //     return image.tags.indexOf('tenthsanctum') >= 0;
+  //   },
 
-    after: function(){
-      siteGalleries.size('jay');
-      var images = $('#jay-gallery a').fancybox({
-        'overlayOpacity' : '0.9',
-        'overlayColor' : '#131313'
-      });
-    }
-  });
+  //   after: function(){
+  //     siteGalleries.size('jay');
+  //     var images = $('#jay-gallery a').fancybox({
+  //       'overlayOpacity' : '0.9',
+  //       'overlayColor' : '#131313'
+  //     });
+  //   }
+  // });
 
-  var daveFeed = new Instafeed({
-    get: 'user',
-      userId: 215205703,
-      // accessToken: '215205703.467ede5.43bb77ac825147f0a8e26e21da1b6dc2',
-      clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
-      limit: '75',
-      links: 'false',
-      resolution: 'standard_resolution',
-      target: 'dave-gallery',
-      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+  // var daveFeed = new Instafeed({
+  //   get: 'user',
+  //     userId: 215205703,
+  //     // accessToken: '215205703.467ede5.43bb77ac825147f0a8e26e21da1b6dc2',
+  //     clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
+  //     limit: '75',
+  //     links: 'false',
+  //     resolution: 'standard_resolution',
+  //     target: 'dave-gallery',
+  //     template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    filter: function(image) {
-      return image.tags.indexOf('tenthsanctum') >= 0;
-    },
+  //   filter: function(image) {
+  //     return image.tags.indexOf('tenthsanctum') >= 0;
+  //   },
 
-    after: function(){
-      siteGalleries.size('dave');
-      var images = $('#dave-gallery a').fancybox({
-        'overlayOpacity' : '0.9',
-        'overlayColor' : '#131313'
-      });
-    }
-  });
+  //   after: function(){
+  //     siteGalleries.size('dave');
+  //     var images = $('#dave-gallery a').fancybox({
+  //       'overlayOpacity' : '0.9',
+  //       'overlayColor' : '#131313'
+  //     });
+  //   }
+  // });
 
-  var fiertoFeed = new Instafeed({
-    get: 'user',
-      userId: 249147633,
-      // accessToken: '249147633.467ede5.0ed6fc66849b4199b22f20ea2cc4e390',
-      clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
-      limit: '75',
-      links: 'false',
-      resolution: 'standard_resolution',
-      target: 'fierto-gallery',
-      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+  // var fiertoFeed = new Instafeed({
+  //   get: 'user',
+  //     userId: 249147633,
+  //     // accessToken: '249147633.467ede5.0ed6fc66849b4199b22f20ea2cc4e390',
+  //     clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
+  //     limit: '75',
+  //     links: 'false',
+  //     resolution: 'standard_resolution',
+  //     target: 'fierto-gallery',
+  //     template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    filter: function(image) {
-      return image.tags.indexOf('tenthsanctum') >= 0;
-    },
+  //   filter: function(image) {
+  //     return image.tags.indexOf('tenthsanctum') >= 0;
+  //   },
 
-    after: function(){
-      siteGalleries.size('fierto');
-      var images = $('#fierto-gallery a').fancybox({
-        'overlayOpacity' : '0.9',
-        'overlayColor' : '#131313'
-      });
-    }
-  });
+  //   after: function(){
+  //     siteGalleries.size('fierto');
+  //     var images = $('#fierto-gallery a').fancybox({
+  //       'overlayOpacity' : '0.9',
+  //       'overlayColor' : '#131313'
+  //     });
+  //   }
+  // });
 
-  var tobiasFeed = new Instafeed({
-    get: 'user',
-      userId: 25697171,
-      // accessToken: '25697171.467ede5.1d5156539dc4433081ef6246807084fe',
-      clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
-      limit: '75',
-      links: 'false',
-      resolution: 'standard_resolution',
-      target: 'tobias-gallery',
-      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+  // var tobiasFeed = new Instafeed({
+  //   get: 'user',
+  //     userId: 25697171,
+  //     // accessToken: '25697171.467ede5.1d5156539dc4433081ef6246807084fe',
+  //     clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
+  //     limit: '75',
+  //     links: 'false',
+  //     resolution: 'standard_resolution',
+  //     target: 'tobias-gallery',
+  //     template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    filter: function(image) {
-      return image.tags.indexOf('tenthsanctum') >= 0;
-    },
+  //   filter: function(image) {
+  //     return image.tags.indexOf('tenthsanctum') >= 0;
+  //   },
 
-    after: function(){
-      siteGalleries.size('tobias');
-      var images = $('#tobias-gallery a').fancybox({
-        'overlayOpacity' : '0.9',
-        'overlayColor' : '#131313'
-      });
-    }
-  });
+  //   after: function(){
+  //     siteGalleries.size('tobias');
+  //     var images = $('#tobias-gallery a').fancybox({
+  //       'overlayOpacity' : '0.9',
+  //       'overlayColor' : '#131313'
+  //     });
+  //   }
+  // });
 
-  var katieFeed = new Instafeed({
-    get: 'user',
-      userId: 54987330,
-      // accessToken: '54987330.467ede5.ad81a2fc998748818832e4e35fe73976',
-      clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
-      limit: '50',
-      links: 'false',
-      resolution: 'standard_resolution',
-      target: 'katie-gallery',
-      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+  // var katieFeed = new Instafeed({
+  //   get: 'user',
+  //     userId: 54987330,
+  //     // accessToken: '54987330.467ede5.ad81a2fc998748818832e4e35fe73976',
+  //     clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
+  //     limit: '50',
+  //     links: 'false',
+  //     resolution: 'standard_resolution',
+  //     target: 'katie-gallery',
+  //     template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    filter: function(image) {
-      return image.tags.indexOf('tenthsanctum') >= 0;
-    },
+  //   filter: function(image) {
+  //     return image.tags.indexOf('tenthsanctum') >= 0;
+  //   },
 
-    after: function(){
-      siteGalleries.size('katie');
-      var images = $('#katie-gallery a').fancybox({
-        'overlayOpacity' : '0.9',
-        'overlayColor' : '#131313'
-      });
-    }
-  });
+  //   after: function(){
+  //     siteGalleries.size('katie');
+  //     var images = $('#katie-gallery a').fancybox({
+  //       'overlayOpacity' : '0.9',
+  //       'overlayColor' : '#131313'
+  //     });
+  //   }
+  // });
 
-  var tenSancFeed = new Instafeed({
-    get: 'user',
-      userId: 905159076,
-      // accessToken: '905159076.467ede5.96f5f0f35c8d41f0abae6b77a9a6ec30',
-      clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
-      limit: '50',
-      links: 'false',
-      resolution: 'standard_resolution',
-      target: 'ten-sanc-gallery',
-      template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
+  // var tenSancFeed = new Instafeed({
+  //   get: 'user',
+  //     userId: 905159076,
+  //     // accessToken: '905159076.467ede5.96f5f0f35c8d41f0abae6b77a9a6ec30',
+  //     clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
+  //     limit: '50',
+  //     links: 'false',
+  //     resolution: 'standard_resolution',
+  //     target: 'ten-sanc-gallery',
+  //     template: '<li><a rel="group" class="facybox" href="{{image}}"><img class="fancybox" src="{{image}}"></a></li>',
 
-    after: function(){
-      siteGalleries.size('tenSancGallery');
-      var images = $('#ten-sanc-gallery a').fancybox({
-        'overlayOpacity' : '0.9',
-        'overlayColor' : '#131313'
-      });
-    }
-  });
+  //   after: function(){
+  //     siteGalleries.size('tenSancGallery');
+  //     var images = $('#ten-sanc-gallery a').fancybox({
+  //       'overlayOpacity' : '0.9',
+  //       'overlayColor' : '#131313'
+  //     });
+  //   }
+  // });
 
   var smoothScroll = {
 
