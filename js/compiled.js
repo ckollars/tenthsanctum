@@ -2728,7 +2728,7 @@ jQuery.extend( jQuery.easing,
       // Start smoth scroll
       smoothScroll.init();
 
-      // jayFeed.run();
+      jayFeed.run();
       // daveFeed.run();
       // fiertoFeed.run();
       // tobiasFeed.run();
