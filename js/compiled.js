@@ -2728,15 +2728,15 @@ jQuery.extend( jQuery.easing,
       // Start smoth scroll
       smoothScroll.init();
 
-      jayFeed.run();
-      daveFeed.run();
-      fiertoFeed.run();
-      tobiasFeed.run();
-      katieFeed.run();
-      tenSancFeed.run();
+      // jayFeed.run();
+      // daveFeed.run();
+      // fiertoFeed.run();
+      // tobiasFeed.run();
+      // katieFeed.run();
+      // tenSancFeed.run();
 
       // Startup all galleries
-      siteGalleries.init();
+      // siteGalleries.init();
 
       // Artist Slider
       var artistNav = $('#resident-artists').bxSlider({
