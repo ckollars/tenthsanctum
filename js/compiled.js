@@ -2795,7 +2795,7 @@ jQuery.extend( jQuery.easing,
   var jayFeed = new Instafeed({
     get: 'user',
       userId: 266550284,
-      // accessToken: '266550284.456bf7f.9e8b3d0a92aa4283baa4437cba216746',
+       accessToken: '1105601.8a2ea4e.d861d58edf7c4702be55a42fb3da3371',
       // clientId: '8a2ea4efa30c4a68833ab04f1ee68ef4',
       limit: '75',
       links: 'false',
